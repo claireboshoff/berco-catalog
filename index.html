@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Berco Indoor Gardens — Product Catalogue</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --blue: #003247;
+  --blue-light: #004a6b;
+  --green: #007637;
+  --green-light: #009139;
+  --lime: #9dc44c;
+  --cream: #f7f9f4;
+  --white: #ffffff;
+  --gray-100: #f5f6f8;
+  --gray-200: #e8eaed;
+  --gray-400: #989fa1;
+  --gray-600: #5a6268;
+  --gray-800: #2d3436;
+  --shadow-sm: 0 1px 3px rgba(0,50,71,0.08);
+  --shadow-md: 0 4px 12px rgba(0,50,71,0.1);
+  --shadow-lg: 0 8px 30px rgba(0,50,71,0.12);
+  --radius: 12px;
+  --radius-sm: 8px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  background: var(--cream);
+  color: var(--gray-800);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── HEADER ─── */
+.header {
+  background: var(--blue);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 20px rgba(0,50,71,0.3);
+}
+
+.header-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.logo-area img {
+  height: 48px;
+  width: auto;
+}
+
+.logo-text {
+  color: var(--white);
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.logo-sub {
+  color: var(--lime);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  display: block;
+  margin-top: -2px;
+}
+
+.header-nav {
+  display: flex;
+  gap: 6px;
+  list-style: none;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.header-nav a {
+  color: rgba(255,255,255,0.7);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 8px 14px;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.header-nav a:hover,
+.header-nav a.active {
+  color: var(--white);
+  background: rgba(255,255,255,0.1);
+}
+
+/* ─── HERO ─── */
+.hero {
+  background: linear-gradient(135deg, var(--blue) 0%, var(--blue-light) 50%, var(--green) 100%);
+  padding: 80px 24px 60px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(157,196,76,0.15) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -30%;
+  left: -10%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(0,118,55,0.2) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.hero h1 {
+  color: var(--white);
+  font-size: 38px;
+  font-weight: 300;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.hero h1 span {
+  font-weight: 700;
+  color: var(--lime);
+}
+
+.hero p {
+  color: rgba(255,255,255,0.8);
+  font-size: 16px;
+  max-width: 520px;
+  margin: 0 auto 32px;
+  line-height: 1.8;
+}
+
+.hero-badges {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.hero-badge {
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: var(--white);
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.hero-badge svg {
+  width: 16px;
+  height: 16px;
+  vertical-align: -3px;
+  margin-right: 6px;
+  fill: var(--lime);
+}
+
+/* ─── SEARCH & FILTER BAR ─── */
+.filter-bar {
+  background: var(--white);
+  border-bottom: 1px solid var(--gray-200);
+  padding: 16px 24px;
+  position: sticky;
+  top: 72px;
+  z-index: 90;
+  box-shadow: var(--shadow-sm);
+}
+
+.filter-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.search-box {
+  flex: 1;
+  min-width: 200px;
+  position: relative;
+}
+
+.search-box svg {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  fill: var(--gray-400);
+}
+
+.search-box input {
+  width: 100%;
+  padding: 10px 14px 10px 42px;
+  border: 2px solid var(--gray-200);
+  border-radius: var(--radius-sm);
+  font-family: inherit;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.search-box input:focus {
+  border-color: var(--green);
+}
+
+.filter-pills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.pill {
+  padding: 8px 18px;
+  border: 2px solid var(--gray-200);
+  border-radius: 50px;
+  background: var(--white);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--gray-600);
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.pill:hover {
+  border-color: var(--green);
+  color: var(--green);
+}
+
+.pill.active {
+  background: var(--green);
+  border-color: var(--green);
+  color: var(--white);
+}
+
+.pill .count {
+  display: inline-block;
+  background: rgba(0,0,0,0.1);
+  padding: 1px 7px;
+  border-radius: 10px;
+  font-size: 11px;
+  margin-left: 4px;
+}
+
+.pill.active .count {
+  background: rgba(255,255,255,0.25);
+}
+
+/* ─── MOA TOGGLE ─── */
+.moa-toggle {
+  display: flex;
+  border: 2px solid var(--blue);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.moa-btn {
+  padding: 8px 16px;
+  background: var(--white);
+  color: var(--blue);
+  border: none;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.moa-btn.active {
+  background: var(--blue);
+  color: var(--white);
+}
+
+.moa-btn:hover:not(.active) {
+  background: var(--gray-100);
+}
+
+/* ─── RESULTS INFO ─── */
+.results-info {
+  max-width: 1280px;
+  margin: 24px auto 0;
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.results-count {
+  font-size: 14px;
+  color: var(--gray-400);
+}
+
+.results-count strong {
+  color: var(--blue);
+}
+
+/* ─── CATEGORY SECTIONS ─── */
+.category-section {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 32px 24px 0;
+}
+
+.category-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--blue);
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.category-title .cat-icon {
+  width: 32px;
+  height: 32px;
+  background: var(--green);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.category-title .cat-icon svg {
+  width: 18px;
+  height: 18px;
+  fill: var(--white);
+}
+
+.category-desc {
+  color: var(--gray-400);
+  font-size: 14px;
+  margin-bottom: 20px;
+  margin-left: 42px;
+}
+
+/* ─── PRODUCT GRID ─── */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.product-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  border: 1px solid var(--gray-200);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.product-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+  border-color: transparent;
+}
+
+.card-top {
+  background: linear-gradient(135deg, var(--blue) 0%, var(--blue-light) 100%);
+  padding: 20px;
+  position: relative;
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.card-material {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(255,255,255,0.15);
+  color: var(--white);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+.card-finish {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: var(--lime);
+  color: var(--blue);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+.card-name {
+  color: var(--white);
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.card-body {
+  padding: 16px 20px 20px;
+}
+
+.card-dims {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.dim {
+  display: flex;
+  flex-direction: column;
+}
+
+.dim-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--gray-400);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.dim-value {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--blue);
+}
+
+.card-divider {
+  height: 1px;
+  background: var(--gray-200);
+  margin: 0 0 14px;
+}
+
+.card-pricing {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
+}
+
+.price-col {
+  text-align: center;
+  padding: 8px 4px;
+  background: var(--gray-100);
+  border-radius: 6px;
+}
+
+.price-col.best {
+  background: rgba(0,118,55,0.08);
+  border: 1px solid rgba(0,118,55,0.2);
+}
+
+.price-term {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--gray-400);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.price-col.best .price-term {
+  color: var(--green);
+}
+
+.price-value {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--blue);
+  margin-top: 2px;
+}
+
+.price-col.best .price-value {
+  color: var(--green);
+}
+
+.price-unit {
+  font-size: 10px;
+  color: var(--gray-400);
+}
+
+/* ─── INFO SECTION ─── */
+.info-section {
+  background: var(--white);
+  margin-top: 40px;
+  padding: 60px 24px;
+  border-top: 3px solid var(--lime);
+}
+
+.info-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+}
+
+.info-card {
+  text-align: center;
+  padding: 24px;
+}
+
+.info-icon {
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(135deg, var(--green), var(--lime));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+}
+
+.info-icon svg {
+  width: 26px;
+  height: 26px;
+  fill: var(--white);
+}
+
+.info-card h3 {
+  color: var(--blue);
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+}
+
+.info-card p {
+  color: var(--gray-600);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* ─── FOOTER ─── */
+.footer {
+  background: var(--blue);
+  color: rgba(255,255,255,0.6);
+  text-align: center;
+  padding: 32px 24px;
+  font-size: 13px;
+}
+
+.footer a {
+  color: var(--lime);
+  text-decoration: none;
+}
+
+.footer strong {
+  color: var(--white);
+}
+
+/* ─── NO RESULTS ─── */
+.no-results {
+  text-align: center;
+  padding: 60px 24px;
+  color: var(--gray-400);
+}
+
+.no-results svg {
+  width: 48px;
+  height: 48px;
+  fill: var(--gray-200);
+  margin-bottom: 16px;
+}
+
+.no-results h3 {
+  color: var(--gray-600);
+  margin-bottom: 8px;
+}
+
+/* ─── COLOR GRID ─── */
+.color-section {
+  max-width: 1280px;
+  margin: 32px auto 0;
+  padding: 0 24px;
+}
+
+.color-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+
+.color-swatch {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 3px solid var(--white);
+  box-shadow: var(--shadow-md);
+  position: relative;
+  cursor: default;
+  transition: transform 0.2s;
+}
+
+.color-swatch:hover {
+  transform: scale(1.15);
+}
+
+.color-swatch .tooltip {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--blue);
+  color: var(--white);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 4px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+
+.color-swatch:hover .tooltip {
+  opacity: 1;
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 768px) {
+  .header-nav { display: none; }
+  .hero h1 { font-size: 26px; letter-spacing: 2px; }
+  .hero { padding: 50px 20px 40px; }
+  .filter-inner { flex-direction: column; }
+  .filter-pills { width: 100%; overflow-x: auto; flex-wrap: nowrap; padding-bottom: 4px; }
+  .moa-toggle { width: 100%; }
+  .moa-btn { flex: 1; text-align: center; }
+  .product-grid { grid-template-columns: 1fr; }
+  .info-inner { grid-template-columns: 1fr; }
+  .results-info { flex-direction: column; gap: 8px; }
+}
+
+@media (max-width: 480px) {
+  .hero h1 { font-size: 22px; }
+  .logo-text { font-size: 16px; }
+  .header-inner { height: 60px; }
+  .filter-bar { top: 60px; }
+}
+
+/* ─── SCROLL ANIMATIONS ─── */
+.product-card {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.4s ease forwards;
+}
+
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Stagger card animations */
+.product-card:nth-child(1) { animation-delay: 0s; }
+.product-card:nth-child(2) { animation-delay: 0.05s; }
+.product-card:nth-child(3) { animation-delay: 0.1s; }
+.product-card:nth-child(4) { animation-delay: 0.15s; }
+.product-card:nth-child(5) { animation-delay: 0.2s; }
+.product-card:nth-child(6) { animation-delay: 0.25s; }
+.product-card:nth-child(7) { animation-delay: 0.3s; }
+.product-card:nth-child(8) { animation-delay: 0.35s; }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-inner">
+    <div class="logo-area">
+      <img src="logo.png" alt="Berco Indoor Gardens">
+      <div>
+        <div class="logo-text">Berco</div>
+        <span class="logo-sub">Indoor Gardens</span>
+      </div>
+    </div>
+    <nav>
+      <ul class="header-nav">
+        <li><a href="#planters" class="active">Planters</a></li>
+        <li><a href="#troughs">Troughs</a></li>
+        <li><a href="#desk-bowls">Desk Bowls</a></li>
+        <li><a href="#wall-planters">Wall</a></li>
+        <li><a href="#hanging">Hanging</a></li>
+        <li><a href="#liners">Liners</a></li>
+        <li><a href="#info">Info</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>Inspiring <span>Your Senses</span></h1>
+    <p>Explore our complete range of premium indoor planters, troughs, desk bowls, and wall features. Every piece available in your brand colours.</p>
+    <div class="hero-badges">
+      <div class="hero-badge">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+        Any Colour, Your Brand
+      </div>
+      <div class="hero-badge">
+        <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+        10 Working Days from MOA
+      </div>
+      <div class="hero-badge">
+        <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
+        12, 24 or 36 Month MOA
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FILTER BAR -->
+<div class="filter-bar">
+  <div class="filter-inner">
+    <div class="search-box">
+      <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+      <input type="text" id="searchInput" placeholder="Search products by name, size, or type...">
+    </div>
+    <div class="filter-pills" id="categoryPills">
+      <button class="pill active" data-category="all">All <span class="count" id="countAll"></span></button>
+      <button class="pill" data-category="fiberglass">Fiberglass <span class="count" id="countFiberglass"></span></button>
+      <button class="pill" data-category="polyethylene">Polyethylene <span class="count" id="countPoly"></span></button>
+      <button class="pill" data-category="trough">Troughs <span class="count" id="countTrough"></span></button>
+      <button class="pill" data-category="desk-bowl">Desk Bowls <span class="count" id="countDesk"></span></button>
+      <button class="pill" data-category="wall">Wall <span class="count" id="countWall"></span></button>
+      <button class="pill" data-category="hanging">Hanging <span class="count" id="countHanging"></span></button>
+      <button class="pill" data-category="liner">Liners <span class="count" id="countLiner"></span></button>
+    </div>
+    <div class="moa-toggle">
+      <button class="moa-btn" data-moa="12">12 Mo</button>
+      <button class="moa-btn active" data-moa="24">24 Mo</button>
+      <button class="moa-btn" data-moa="36">36 Mo</button>
+    </div>
+  </div>
+</div>
+
+<!-- RESULTS COUNT -->
+<div class="results-info">
+  <div class="results-count">Showing <strong id="visibleCount">0</strong> products</div>
+</div>
+
+<!-- AVAILABLE COLOURS -->
+<div class="color-section" id="colours">
+  <div class="category-title">
+    <div class="cat-icon"><svg viewBox="0 0 24 24"><path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9c.83 0 1.5-.67 1.5-1.5 0-.39-.15-.74-.39-1.01-.23-.26-.38-.61-.38-1 0-.83.67-1.5 1.5-1.5H16c2.76 0 5-2.24 5-5 0-4.42-4.03-8-9-8zm-5.5 9c-.83 0-1.5-.67-1.5-1.5S5.67 9 6.5 9 8 9.67 8 10.5 7.33 12 6.5 12zm3-4C8.67 8 8 7.33 8 6.5S8.67 5 9.5 5s1.5.67 1.5 1.5S10.33 8 9.5 8zm5 0c-.83 0-1.5-.67-1.5-1.5S13.67 5 14.5 5s1.5.67 1.5 1.5S15.33 8 14.5 8zm3 4c-.83 0-1.5-.67-1.5-1.5S16.67 9 17.5 9s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg></div>
+    Available Colours
+  </div>
+  <p class="category-desc">All planters can be finished in any of these standard colours — or matched to your brand identity.</p>
+  <div class="color-grid" id="colorGrid"></div>
+</div>
+
+<!-- PRODUCT SECTIONS -->
+<div id="productSections"></div>
+
+<!-- NO RESULTS -->
+<div class="no-results" id="noResults" style="display:none;">
+  <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+  <h3>No products found</h3>
+  <p>Try adjusting your search or filter criteria.</p>
+</div>
+
+<!-- INFO SECTION -->
+<section class="info-section" id="info">
+  <div class="info-inner">
+    <div class="info-card">
+      <div class="info-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9c.83 0 1.5-.67 1.5-1.5 0-.39-.15-.74-.39-1.01-.23-.26-.38-.61-.38-1 0-.83.67-1.5 1.5-1.5H16c2.76 0 5-2.24 5-5 0-4.42-4.03-8-9-8z"/></svg>
+      </div>
+      <h3>Custom Brand Colours</h3>
+      <p>Every planter can be finished in your business brand colours. From corporate blues to vibrant accent tones, we match any shade to bring your space to life.</p>
+    </div>
+    <div class="info-card">
+      <div class="info-icon">
+        <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+      </div>
+      <h3>10 Working Days</h3>
+      <p>From the day you sign your Memorandum of Agreement (MOA), your planters are prepared and delivered within approximately 10 working days.</p>
+    </div>
+    <div class="info-card">
+      <div class="info-icon">
+        <svg viewBox="0 0 24 24"><path d="M17 1H7c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-2-2-2zm0 18H7V5h10v14z"/></svg>
+      </div>
+      <h3>Flexible Rental Terms</h3>
+      <p>Choose from 12, 24, or 36-month MOA terms. Longer commitments offer better monthly rates. All rentals include maintenance and plant care.</p>
+    </div>
+    <div class="info-card">
+      <div class="info-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/></svg>
+      </div>
+      <h3>Full Plant Care Included</h3>
+      <p>Our expert technicians visit your premises regularly to water, feed, prune, and maintain all plants. If a plant isn't thriving, we replace it at no extra charge.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p><strong>Berco Indoor Gardens</strong> (PTY) LTD &mdash; Reg. 1998/011227/07</p>
+  <p style="margin-top:6px;">Cape Town &bull; Bloemfontein &bull; East London &bull; Port Elizabeth &bull; George &bull; Johannesburg</p>
+  <p style="margin-top:12px;">Visit <a href="https://bercowindoorgardens.co.za" target="_blank">bercowindoorgardens.co.za</a> &bull; All prices are monthly rental rates in ZAR (excl. VAT)</p>
+</footer>
+
+<script>
+// ── PRODUCT DATA ──
+const products = [
+  // FIBERGLASS PLANTERS
+  {name:"Pegasus Large",cat:"fiberglass",type:"Planter",h:"90cm",w:"50cm",p12:366.69,p24:319.96,p36:288.80,material:"Fiberglass"},
+  {name:"Pegasus Medium",cat:"fiberglass",type:"Planter",h:"60cm",w:"50cm",p12:342.95,p24:300.96,p36:272.97,material:"Fiberglass"},
+  {name:"Pegasus Small",cat:"fiberglass",type:"Planter",h:"50cm",w:"50cm",p12:333.85,p24:293.68,p36:266.90,material:"Fiberglass"},
+  {name:"Bellini Round XL",cat:"fiberglass",type:"Planter",h:"120cm",w:"47cm",p12:379.12,p24:329.89,p36:297.08,material:"Fiberglass"},
+  {name:"Bellini Round L",cat:"fiberglass",type:"Planter",h:"100cm",w:"47cm",p12:364.79,p24:318.43,p36:287.53,material:"Fiberglass"},
+  {name:"Bellini Round M",cat:"fiberglass",type:"Planter",h:"75cm",w:"47cm",p12:344.49,p24:302.19,p36:273.99,material:"Fiberglass"},
+  {name:"Bellini Round S",cat:"fiberglass",type:"Planter",h:"40cm",w:"56cm",p12:299.45,p24:266.16,p36:243.97,material:"Fiberglass"},
+  {name:"Bellini Square XL",cat:"fiberglass",type:"Planter",h:"120cm",w:"44cm",p12:388.41,p24:337.33,p36:303.28,material:"Fiberglass"},
+  {name:"Bellini Square L",cat:"fiberglass",type:"Planter",h:"100cm",w:"44cm",p12:372.63,p24:324.70,p36:292.75,material:"Fiberglass"},
+  {name:"Bellini Square M",cat:"fiberglass",type:"Planter",h:"75cm",w:"44cm",p12:354.11,p24:309.88,p36:280.40,material:"Fiberglass"},
+  {name:"Bellini Square S",cat:"fiberglass",type:"Planter",h:"40cm",w:"53cm",p12:306.92,p24:272.14,p36:248.95,material:"Fiberglass"},
+  {name:"Delphi",cat:"fiberglass",type:"Planter",h:"76cm",w:"43cm",p12:327.58,p24:288.67,p36:262.72,material:"Fiberglass"},
+  {name:"Odyssey Medium",cat:"fiberglass",type:"Planter",h:"90cm",w:"60cm",p12:363.75,p24:317.60,p36:286.84,material:"Fiberglass"},
+  {name:"Odyssey Small",cat:"fiberglass",type:"Planter",h:"60cm",w:"60cm",p12:346.58,p24:303.87,p36:275.39,material:"Fiberglass"},
+  {name:"Beverly 40 (Fiberglass)",cat:"fiberglass",type:"Planter",h:"79cm",w:"43cm",p12:321.21,p24:283.56,p36:258.47,material:"Fiberglass"},
+  {name:"Beverly 32",cat:"fiberglass",type:"Planter",h:"79cm",w:"43cm",p12:324.34,p24:286.07,p36:260.56,material:"Fiberglass"},
+  {name:"Katana Large",cat:"fiberglass",type:"Planter",h:"100cm",w:"50cm",p12:347.79,p24:304.83,p36:276.20,material:"Fiberglass"},
+  {name:"Katana Medium",cat:"fiberglass",type:"Planter",h:"83cm",w:"50cm",p12:332.29,p24:292.43,p36:265.86,material:"Fiberglass"},
+  {name:"Othello Medium",cat:"fiberglass",type:"Planter",h:"90cm",w:"60cm",p12:387.30,p24:336.44,p36:302.53,material:"Fiberglass"},
+  {name:"Othello Small",cat:"fiberglass",type:"Planter",h:"62cm",w:"60cm",p12:340.60,p24:299.08,p36:271.40,material:"Fiberglass"},
+  {name:"Elgin Large",cat:"fiberglass",type:"Planter",h:"100cm",w:"36cm",p12:344.27,p24:302.02,p36:273.85,material:"Fiberglass"},
+  {name:"Elgin Medium",cat:"fiberglass",type:"Planter",h:"80cm",w:"36cm",p12:308.64,p24:273.51,p36:250.09,material:"Fiberglass"},
+  {name:"Salt Large",cat:"fiberglass",type:"Planter",h:"102cm",w:"35cm",p12:371.43,p24:323.75,p36:291.95,material:"Fiberglass"},
+  {name:"Salt Medium",cat:"fiberglass",type:"Planter",h:"78cm",w:"28cm",p12:302.08,p24:268.26,p36:245.72,material:"Fiberglass"},
+  {name:"Chamonix Large",cat:"fiberglass",type:"Planter",h:"102cm",w:"44cm",p12:350.25,p24:306.80,p36:277.83,material:"Fiberglass"},
+  {name:"Chamonix Medium",cat:"fiberglass",type:"Planter",h:"75cm",w:"50cm",p12:324.58,p24:286.26,p36:260.72,material:"Fiberglass"},
+  {name:"Chamonix Small",cat:"fiberglass",type:"Planter",h:"61cm",w:"48cm",p12:312.07,p24:276.26,p36:252.38,material:"Fiberglass"},
+  {name:"Iris XL",cat:"fiberglass",type:"Planter",h:"120cm",w:"38cm",p12:357.66,p24:312.73,p36:282.77,material:"Fiberglass"},
+  {name:"Iris Large",cat:"fiberglass",type:"Planter",h:"100cm",w:"38cm",p12:334.52,p24:294.21,p36:267.35,material:"Fiberglass"},
+  {name:"Iris Medium",cat:"fiberglass",type:"Planter",h:"80cm",w:"38cm",p12:324.55,p24:286.24,p36:260.70,material:"Fiberglass"},
+  {name:"Iris Small",cat:"fiberglass",type:"Planter",h:"34/38cm",w:"35cm",p12:255.86,p24:231.29,p36:214.90,material:"Fiberglass"},
+  {name:"Iris 70",cat:"fiberglass",type:"Planter",h:"51cm",w:"80.5cm",p12:607.81,p24:532.41,p36:482.14,material:"Fiberglass"},
+  {name:"Iris 55cm",cat:"fiberglass",type:"Planter",h:"50cm",w:"64.5cm",p12:435.90,p24:376.98,p36:337.70,material:"Fiberglass"},
+  {name:"Iris 40cm",cat:"fiberglass",type:"Planter",h:"35cm",w:"47cm",p12:282.71,p24:252.77,p36:232.81,material:"Fiberglass"},
+  {name:"Valentino",cat:"fiberglass",type:"Planter",h:"77cm",w:"49cm",p12:327.06,p24:288.25,p36:262.37,material:"Fiberglass"},
+  {name:"Eden Tall",cat:"fiberglass",type:"Planter",h:"90cm",w:"60cm",p12:409.76,p24:354.41,p36:317.51,material:"Fiberglass"},
+  {name:"Eden Short",cat:"fiberglass",type:"Planter",h:"60cm",w:"60cm",p12:368.43,p24:321.34,p36:289.95,material:"Fiberglass"},
+  {name:"Gaia 70",cat:"fiberglass",type:"Planter",h:"102cm",w:"90cm",p12:798.85,p24:685.24,p36:609.50,material:"Fiberglass"},
+  {name:"Gaia 55",cat:"fiberglass",type:"Planter",h:"77cm",w:"77cm",p12:500.76,p24:428.87,p36:380.94,material:"Fiberglass"},
+  {name:"Gaia 40",cat:"fiberglass",type:"Planter",h:"53cm",w:"55cm",p12:323.75,p24:285.60,p36:260.17,material:"Fiberglass"},
+  {name:"Clio",cat:"fiberglass",type:"Planter",h:"68cm",w:"70cm",p12:547.30,p24:484.00,p36:441.80,material:"Fiberglass"},
+  {name:"Symphony",cat:"fiberglass",type:"Planter",h:"49cm",w:"53.5cm",p12:315.43,p24:278.95,p36:254.62,material:"Fiberglass"},
+  {name:"Astro",cat:"fiberglass",type:"Planter",h:"67cm",w:"46cm",p12:313.93,p24:277.74,p36:253.62,material:"Fiberglass"},
+  {name:"Equinox",cat:"fiberglass",type:"Planter",h:"68.5cm",w:"57.5cm",p12:323.68,p24:285.55,p36:260.12,material:"Fiberglass"},
+  {name:"Eclipse",cat:"fiberglass",type:"Planter",h:"88cm",w:"49cm",p12:335.82,p24:295.26,p36:268.22,material:"Fiberglass"},
+  {name:"Cyclone",cat:"fiberglass",type:"Planter",h:"84cm",w:"51cm",p12:336.34,p24:295.67,p36:268.56,material:"Fiberglass"},
+  {name:"Lunar Round Large",cat:"fiberglass",type:"Planter",h:"120cm",w:"41cm",p12:387.34,p24:336.47,p36:302.56,material:"Fiberglass"},
+  {name:"Lunar Round Medium",cat:"fiberglass",type:"Planter",h:"89cm",w:"41cm",p12:337.20,p24:296.36,p36:269.13,material:"Fiberglass"},
+  {name:"Lunar Square Large",cat:"fiberglass",type:"Planter",h:"120cm",w:"53cm",p12:389.26,p24:338.01,p36:303.84,material:"Fiberglass"},
+  {name:"Lunar Square Medium",cat:"fiberglass",type:"Planter",h:"89cm",w:"38cm",p12:333.31,p24:293.25,p36:266.54,material:"Fiberglass"},
+  {name:"Pepper Large",cat:"fiberglass",type:"Planter",h:"102cm",w:"46cm",p12:371.46,p24:323.76,p36:291.97,material:"Fiberglass"},
+  {name:"Pepper Medium",cat:"fiberglass",type:"Planter",h:"78cm",w:"35cm",p12:332.47,p24:292.58,p36:265.98,material:"Fiberglass"},
+  {name:"Hestia",cat:"fiberglass",type:"Planter",h:"35cm",w:"34cm",p12:250.38,p24:226.90,p36:211.25,material:"Fiberglass"},
+  {name:"Quadriga Planter XL",cat:"fiberglass",type:"Planter",h:"120cm",w:"35cm",p12:398.54,p24:345.44,p36:310.03,material:"Fiberglass"},
+  {name:"Quadriga Planter L",cat:"fiberglass",type:"Planter",h:"100cm",w:"35cm",p12:366.04,p24:319.43,p36:288.36,material:"Fiberglass"},
+  {name:"Quadriga Planter M",cat:"fiberglass",type:"Planter",h:"80cm",w:"35cm",p12:495.89,p24:457.92,p36:432.60,material:"Fiberglass"},
+  {name:"Quadriga Planter S",cat:"fiberglass",type:"Planter",h:"35cm",w:"35cm",p12:259.39,p24:234.11,p36:217.26,material:"Fiberglass"},
+  {name:"Ripple Tall",cat:"fiberglass",type:"Planter",h:"90cm",w:"50cm",p12:364.99,p24:318.59,p36:287.66,material:"Fiberglass"},
+  {name:"Ripple Short",cat:"fiberglass",type:"Planter",h:"60cm",w:"50cm",p12:354.56,p24:310.24,p36:280.70,material:"Fiberglass"},
+
+  // POLYETHYLENE PLANTERS
+  {name:"Ashley",cat:"polyethylene",type:"Planter",h:"92cm",w:"46cm",p12:228.50,p24:209.40,p36:196.67,material:"Polyethylene",finish:"Pigmented"},
+  {name:"Ashley",cat:"polyethylene",type:"Planter",h:"92cm",w:"46cm",p12:276.39,p24:247.71,p36:228.59,material:"Polyethylene",finish:"Sprayed Standard"},
+  {name:"Ashley",cat:"polyethylene",type:"Planter",h:"92cm",w:"46cm",p12:291.39,p24:259.71,p36:238.59,material:"Polyethylene",finish:"Sprayed Pearl"},
+  {name:"Ashley",cat:"polyethylene",type:"Planter",h:"92cm",w:"46cm",p12:284.31,p24:254.05,p36:233.88,material:"Polyethylene",finish:"Sprayed Metallic"},
+  {name:"Athena Large",cat:"polyethylene",type:"Planter",h:"79cm",w:"42cm",p12:225.41,p24:206.93,p36:194.61,material:"Polyethylene",finish:"Pigmented"},
+  {name:"Athena Large",cat:"polyethylene",type:"Planter",h:"79cm",w:"42cm",p12:277.99,p24:248.99,p36:229.66,material:"Polyethylene",finish:"Sprayed Standard"},
+  {name:"Athena Large",cat:"polyethylene",type:"Planter",h:"79cm",w:"42cm",p12:292.32,p24:260.45,p36:239.21,material:"Polyethylene",finish:"Sprayed Pearl"},
+  {name:"Athena Large",cat:"polyethylene",type:"Planter",h:"79cm",w:"42cm",p12:284.65,p24:254.32,p36:234.10,material:"Polyethylene",finish:"Sprayed Metallic"},
+  {name:"Athena Small",cat:"polyethylene",type:"Planter",h:"59cm",w:"48cm",p12:213.42,p24:197.34,p36:186.62,material:"Polyethylene",finish:"Pigmented"},
+  {name:"Athena Small",cat:"polyethylene",type:"Planter",h:"59cm",w:"48cm",p12:279.16,p24:249.92,p36:230.44,material:"Polyethylene",finish:"Sprayed Standard"},
+  {name:"Athena Small",cat:"polyethylene",type:"Planter",h:"59cm",w:"48cm",p12:294.15,p24:261.92,p36:240.43,material:"Polyethylene",finish:"Sprayed Pearl"},
+  {name:"Athena Small",cat:"polyethylene",type:"Planter",h:"59cm",w:"48cm",p12:283.79,p24:253.63,p36:233.53,material:"Polyethylene",finish:"Sprayed Metallic"},
+  {name:"Beverly 40cm",cat:"polyethylene",type:"Planter",h:"79cm",w:"42cm",p12:227.25,p24:208.40,p36:195.83,material:"Polyethylene",finish:"Pigmented"},
+  {name:"Beverly 40cm",cat:"polyethylene",type:"Planter",h:"79cm",w:"42cm",p12:272.58,p24:244.67,p36:226.06,material:"Polyethylene",finish:"Sprayed Standard"},
+  {name:"Beverly 40cm",cat:"polyethylene",type:"Planter",h:"79cm",w:"42cm",p12:286.23,p24:255.59,p36:235.16,material:"Polyethylene",finish:"Sprayed Pearl"},
+  {name:"Beverly 40cm",cat:"polyethylene",type:"Planter",h:"79cm",w:"42cm",p12:278.90,p24:249.72,p36:230.27,material:"Polyethylene",finish:"Sprayed Metallic"},
+  {name:"Elgin Medium",cat:"polyethylene",type:"Planter",h:"80cm",w:"36cm",p12:225.73,p24:207.19,p36:194.82,material:"Polyethylene",finish:"Pigmented"},
+  {name:"Elgin Medium",cat:"polyethylene",type:"Planter",h:"80cm",w:"36cm",p12:270.98,p24:243.39,p36:224.99,material:"Polyethylene",finish:"Sprayed Standard"},
+  {name:"Elgin Medium",cat:"polyethylene",type:"Planter",h:"80cm",w:"36cm",p12:285.42,p24:254.93,p36:234.61,material:"Polyethylene",finish:"Sprayed Pearl"},
+  {name:"Elgin Medium",cat:"polyethylene",type:"Planter",h:"80cm",w:"36cm",p12:278.61,p24:249.48,p36:230.07,material:"Polyethylene",finish:"Sprayed Metallic"},
+  {name:"Enlighten",cat:"polyethylene",type:"Planter",h:"84cm",w:"45cm",p12:226.13,p24:207.50,p36:195.09,material:"Polyethylene",finish:"Pigmented"},
+  {name:"Enlighten",cat:"polyethylene",type:"Planter",h:"84cm",w:"45cm",p12:273.81,p24:245.65,p36:226.87,material:"Polyethylene",finish:"Sprayed Standard"},
+  {name:"Enlighten",cat:"polyethylene",type:"Planter",h:"84cm",w:"45cm",p12:301.46,p24:267.77,p36:245.31,material:"Polyethylene",finish:"Sprayed Pearl"},
+  {name:"Enlighten",cat:"polyethylene",type:"Planter",h:"84cm",w:"45cm",p12:280.94,p24:251.36,p36:231.63,material:"Polyethylene",finish:"Sprayed Metallic"},
+  {name:"H2O",cat:"polyethylene",type:"Planter",h:"76cm",w:"33cm",p12:201.64,p24:187.91,p36:178.76,material:"Polyethylene",finish:"Pigmented"},
+  {name:"H2O",cat:"polyethylene",type:"Planter",h:"76cm",w:"33cm",p12:249.65,p24:226.32,p36:210.77,material:"Polyethylene",finish:"Sprayed Standard"},
+  {name:"H2O",cat:"polyethylene",type:"Planter",h:"76cm",w:"33cm",p12:265.70,p24:239.16,p36:221.47,material:"Polyethylene",finish:"Sprayed Pearl"},
+  {name:"H2O",cat:"polyethylene",type:"Planter",h:"76cm",w:"33cm",p12:258.39,p24:233.31,p36:216.59,material:"Polyethylene",finish:"Sprayed Metallic"},
+  {name:"Alpha-Omega",cat:"polyethylene",type:"Planter",h:"65cm",w:"43cm",p12:220.13,p24:202.70,p36:191.09,material:"Polyethylene",finish:"Pigmented"},
+  {name:"Alpha-Omega",cat:"polyethylene",type:"Planter",h:"65cm",w:"43cm",p12:270.48,p24:242.99,p36:224.66,material:"Polyethylene",finish:"Sprayed Standard"},
+  {name:"Alpha-Omega",cat:"polyethylene",type:"Planter",h:"65cm",w:"43cm",p12:285.41,p24:254.92,p36:234.60,material:"Polyethylene",finish:"Sprayed Pearl"},
+  {name:"Alpha-Omega",cat:"polyethylene",type:"Planter",h:"65cm",w:"43cm",p12:278.03,p24:249.02,p36:229.68,material:"Polyethylene",finish:"Sprayed Metallic"},
+
+  // TROUGHS
+  {name:"Quadriga Trough L",cat:"trough",type:"Trough",h:"100cm",w:"35cm",l:"100cm",p12:691.21,p24:618.18,p36:569.49,material:"Fiberglass"},
+  {name:"Quadriga Trough M",cat:"trough",type:"Trough",h:"80cm",w:"35cm",l:"100cm",p12:659.11,p24:592.49,p36:548.08,material:"Fiberglass"},
+  {name:"Quadriga Trough S",cat:"trough",type:"Trough",h:"40cm",w:"35cm",l:"67cm",p12:448.75,p24:406.85,p36:378.92,material:"Fiberglass"},
+  {name:"Quadriga Trough 3 Div",cat:"trough",type:"Trough",h:"80cm",w:"33cm",l:"95cm",p12:529.60,p24:471.53,p36:432.81,material:"Fiberglass"},
+  {name:"Quadriga Trough 2 Div Tall",cat:"trough",type:"Trough",h:"80cm",w:"40cm",l:"75cm",p12:518.24,p24:462.44,p36:425.24,material:"Fiberglass"},
+  {name:"Quadriga Trough 2 Div Standard",cat:"trough",type:"Trough",h:"80cm",w:"35cm",l:"75cm",p12:494.99,p24:443.84,p36:409.74,material:"Fiberglass"},
+  {name:"Quadriga Trough 2 Div Short",cat:"trough",type:"Trough",h:"40cm",w:"40cm",l:"75cm",p12:503.99,p24:451.04,p36:415.74,material:"Fiberglass"},
+  {name:"Lunar Trough",cat:"trough",type:"Trough",h:"90cm",w:"107cm",p12:664.06,p24:596.46,p36:551.38,material:"Fiberglass"},
+  {name:"Okino Trough Large",cat:"trough",type:"Trough",h:"31cm",w:"110cm",p12:566.63,p24:518.51,p36:486.43,material:"Fiberglass"},
+  {name:"Okino Trough Small",cat:"trough",type:"Trough",h:"31cm",w:"79cm",p12:463.99,p24:421.35,p36:392.93,material:"Fiberglass"},
+  {name:"Pulsar",cat:"trough",type:"Trough",h:"47cm",w:"112cm",p12:604.39,p24:548.72,p36:511.60,material:"Fiberglass"},
+
+  // DESK BOWLS
+  {name:"Iris Desk Bowl",cat:"desk-bowl",type:"Desk Bowl",h:"18cm",w:"23.5cm",p12:167.54,p24:149.43,p36:137.36,material:"Fiberglass"},
+  {name:"Erin Desk Bowl",cat:"desk-bowl",type:"Desk Bowl",h:"12cm",w:"30.5cm",p12:172.27,p24:153.21,p36:140.51,material:"Fiberglass"},
+  {name:"Vega D/B",cat:"desk-bowl",type:"Desk Bowl",h:"16cm",w:"29cm",p12:164.27,p24:146.81,p36:135.18,material:"Fiberglass"},
+  {name:"Nova Large D/B",cat:"desk-bowl",type:"Desk Bowl",h:"26cm",w:"33cm",p12:214.94,p24:195.15,p36:181.96,material:"Fiberglass"},
+  {name:"Nova Medium D/B",cat:"desk-bowl",type:"Desk Bowl",h:"20cm",w:"24.5cm",p12:159.41,p24:142.93,p36:131.94,material:"Fiberglass"},
+  {name:"Othello Desk Bowl Large",cat:"desk-bowl",type:"Desk Bowl",h:"23.5cm",w:"58cm",p12:392.52,p24:371.82,p36:358.02,material:"Fiberglass"},
+  {name:"Othello Desk Bowl Medium",cat:"desk-bowl",type:"Desk Bowl",h:"14cm",w:"24cm",p12:162.21,p24:145.16,p36:133.80,material:"Fiberglass"},
+  {name:"Katana Large D/B",cat:"desk-bowl",type:"Desk Bowl",h:"16cm",w:"50cm",p12:217.06,p24:198.51,p36:186.14,material:"Fiberglass"},
+  {name:"Katana Medium D/B",cat:"desk-bowl",type:"Desk Bowl",h:"9cm",w:"30cm",p12:157.87,p24:141.69,p36:130.91,material:"Fiberglass"},
+  {name:"Kintra Large D/B",cat:"desk-bowl",type:"Desk Bowl",h:"20cm",w:"37cm",p12:222.19,p24:202.61,p36:189.56,material:"Fiberglass"},
+  {name:"Kintra Medium D/B",cat:"desk-bowl",type:"Desk Bowl",h:"16cm",w:"27cm",p12:157.92,p24:141.74,p36:130.95,material:"Fiberglass"},
+  {name:"Kintra Small D/B",cat:"desk-bowl",type:"Desk Bowl",h:"7cm",w:"14.5cm",p12:101.56,p24:96.64,p36:93.37,material:"Fiberglass"},
+  {name:"Quadriga Medium D/B",cat:"desk-bowl",type:"Desk Bowl",h:"25cm",w:"25cm",p12:162.21,p24:145.16,p36:133.80,material:"Fiberglass"},
+  {name:"Quadriga Small D/B",cat:"desk-bowl",type:"Desk Bowl",h:"15cm",w:"15cm",p12:151.53,p24:136.63,p36:126.69,material:"Fiberglass"},
+  {name:"Quadriga Cupboard Trough",cat:"desk-bowl",type:"Desk Bowl",h:"—",w:"—",p12:241.50,p24:218.20,p36:202.67,material:"Fiberglass"},
+  {name:"Quadriga Window Box D/B Medium",cat:"desk-bowl",type:"Desk Bowl",h:"25cm",w:"25cm",l:"45cm",p12:234.38,p24:212.37,p36:197.69,material:"Fiberglass"},
+  {name:"Quadriga Window Box D/B Small",cat:"desk-bowl",type:"Desk Bowl",h:"15cm",w:"15cm",l:"45cm",p12:227.32,p24:206.72,p36:192.98,material:"Fiberglass"},
+  {name:"Bella D/B",cat:"desk-bowl",type:"Desk Bowl",h:"15cm",w:"38cm",p12:173.11,p24:153.89,p36:141.07,material:"Fiberglass"},
+  {name:"Amika D/B",cat:"desk-bowl",type:"Desk Bowl",h:"13.8cm",w:"27.8cm",p12:169.42,p24:150.93,p36:138.61,material:"Fiberglass"},
+  {name:"Taipan D/B",cat:"desk-bowl",type:"Desk Bowl",h:"11cm",w:"34cm",p12:169.42,p24:150.93,p36:138.61,material:"Fiberglass"},
+  {name:"Ripple D/B",cat:"desk-bowl",type:"Desk Bowl",h:"—",w:"—",p12:177.31,p24:157.25,p36:143.88,material:"Fiberglass"},
+
+  // WALL PLANTERS
+  {name:"Full Crescent XL",cat:"wall",type:"Wall Planter",h:"9cm",w:"49cm",p12:207.87,p24:191.30,p36:180.26,material:"Fiberglass"},
+  {name:"Full Crescent Large",cat:"wall",type:"Wall Planter",h:"9cm",w:"39cm",p12:203.84,p24:188.08,p36:177.57,material:"Fiberglass"},
+  {name:"Full Crescent Medium",cat:"wall",type:"Wall Planter",h:"9cm",w:"29cm",p12:197.23,p24:182.79,p36:173.16,material:"Fiberglass"},
+  {name:"Full Crescent Small",cat:"wall",type:"Wall Planter",h:"9cm",w:"19cm",p12:145.17,p24:131.54,p36:122.45,material:"Fiberglass"},
+  {name:"Half Crescent XL",cat:"wall",type:"Wall Planter",h:"9cm",w:"25cm",l:"49cm",p12:190.70,p24:177.57,p36:168.81,material:"Fiberglass"},
+  {name:"Half Crescent Large",cat:"wall",type:"Wall Planter",h:"9cm",w:"20cm",l:"39cm",p12:179.63,p24:168.71,p36:161.42,material:"Fiberglass"},
+  {name:"Hexagon Full Large",cat:"wall",type:"Wall Planter",h:"10.5cm",w:"45cm",p12:209.26,p24:192.41,p36:181.18,material:"Fiberglass"},
+  {name:"Hexagon Full Small",cat:"wall",type:"Wall Planter",h:"10.5cm",w:"33cm",p12:153.98,p24:138.59,p36:128.32,material:"Fiberglass"},
+  {name:"Hexagon Half Large",cat:"wall",type:"Wall Planter",h:"10.5cm",w:"20cm",l:"45cm",p12:195.53,p24:181.43,p36:172.03,material:"Fiberglass"},
+  {name:"Hexagon Half Small",cat:"wall",type:"Wall Planter",h:"10.5cm",w:"15.5cm",l:"33cm",p12:145.23,p24:131.59,p36:122.49,material:"Fiberglass"},
+
+  // HANGING BOWLS
+  {name:"Hanging Sphere L (Standard)",cat:"hanging",type:"Hanging Bowl",h:"18cm",w:"35cm",p12:211.65,p24:194.33,p36:182.77,material:"Fiberglass",finish:"Standard Colours"},
+  {name:"Hanging Sphere L (Pigmented)",cat:"hanging",type:"Hanging Bowl",h:"18cm",w:"35cm",p12:176.11,p24:165.93,p36:159.14,material:"Fiberglass",finish:"Pigmented Gel Coat"},
+  {name:"Hanging Sphere S (Standard)",cat:"hanging",type:"Hanging Bowl",h:"12cm",w:"25cm",p12:157.71,p24:141.57,p36:130.81,material:"Fiberglass",finish:"Standard Colours"},
+  {name:"Hanging Sphere S (Pigmented)",cat:"hanging",type:"Hanging Bowl",h:"12cm",w:"25cm",p12:121.48,p24:112.58,p36:106.65,material:"Fiberglass",finish:"Pigmented Gel Coat"},
+  {name:"Sky Ring Large",cat:"hanging",type:"Hanging Bowl",h:"15cm",w:"15.5cm",l:"100cm",p12:753.20,p24:712.58,p36:685.50,material:"Fiberglass"},
+
+  // LINERS
+  {name:"70cm Complete Liner",cat:"liner",type:"Liner",h:"49cm",w:"69cm",p12:323.48,p24:303.03,p36:289.39,material:"Polyethylene"},
+  {name:"55cm Complete Liner",cat:"liner",type:"Liner",h:"44.5cm",w:"54.5cm",p12:200.66,p24:188.93,p36:181.12,material:"Polyethylene"},
+  {name:"40cm Complete Liner",cat:"liner",type:"Liner",h:"33cm",w:"40cm",p12:145.33,p24:142.87,p36:141.22,material:"Polyethylene"},
+  {name:"32cm Complete Liner",cat:"liner",type:"Liner",h:"29.5cm",w:"31cm",p12:143.50,p24:141.40,p36:140.00,material:"Polyethylene"},
+  {name:"29cm Complete Liner",cat:"liner",type:"Liner",h:"26cm",w:"29cm",p12:143.10,p24:141.08,p36:139.74,material:"Polyethylene"},
+  {name:"25cm Complete Liner",cat:"liner",type:"Liner",h:"24.5cm",w:"24.5cm",p12:138.56,p24:137.44,p36:136.70,material:"Polyethylene"},
+  {name:"40cm Liner Pot",cat:"liner",type:"Liner",h:"—",w:"—",p12:53.19,p24:51.55,p36:50.46,material:"Polyethylene"},
+  {name:"32cm Liner Pot",cat:"liner",type:"Liner",h:"—",w:"—",p12:52.04,p24:50.63,p36:49.70,material:"Polyethylene"},
+];
+
+// Colours
+const colours = [
+  {name:"Black",hex:"#1a1a1a"},{name:"White",hex:"#f5f5f5"},{name:"Brown",hex:"#6d4c2e"},
+  {name:"Beige",hex:"#d4b896"},{name:"Gray",hex:"#8e8e8e"},{name:"Green",hex:"#3a7d44"},
+  {name:"Blue",hex:"#2e5ea8"},{name:"Teal",hex:"#2a9d8f"},{name:"Red",hex:"#c0392b"},
+  {name:"Orange",hex:"#e67e22"},{name:"Yellow",hex:"#d4ac0d"},{name:"Pink",hex:"#d63384"},
+  {name:"Purple",hex:"#7b2d8e"},{name:"Magenta",hex:"#c2185b"},{name:"Lavender",hex:"#9b8ec0"},
+  {name:"Cyan",hex:"#00acc1"}
+];
+
+// Category config
+const categories = {
+  fiberglass: {title:"Fiberglass Planters", desc:"Premium fiberglass planters — lightweight, durable, and available in a wide range of shapes and sizes.", anchor:"planters", icon:'<svg viewBox="0 0 24 24"><path d="M18 4V3c0-.55-.45-1-1-1H7c-.55 0-1 .45-1 1v1H3v6c0 3.87 2.84 7.08 6.55 7.65C10.58 19.56 12 20.73 12 22h0c0-1.27 1.42-2.44 2.45-4.35C18.16 17.08 21 13.87 21 10V4h-3z"/></svg>'},
+  polyethylene: {title:"Polyethylene Planters", desc:"Cost-effective polyethylene planters available in Pigmented, Sprayed Standard, Sprayed Pearl, and Sprayed Metallic finishes.", anchor:"planters-poly", icon:'<svg viewBox="0 0 24 24"><path d="M18 4V3c0-.55-.45-1-1-1H7c-.55 0-1 .45-1 1v1H3v6c0 3.87 2.84 7.08 6.55 7.65C10.58 19.56 12 20.73 12 22h0c0-1.27 1.42-2.44 2.45-4.35C18.16 17.08 21 13.87 21 10V4h-3z"/></svg>'},
+  trough: {title:"Troughs", desc:"Elegant troughs for dividing spaces, creating green partitions, and adding depth to reception areas.", anchor:"troughs", icon:'<svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14z"/></svg>'},
+  "desk-bowl": {title:"Desk Bowls", desc:"Compact desk bowls perfect for workstations, boardroom tables, and reception counters.", anchor:"desk-bowls", icon:'<svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>'},
+  wall: {title:"Wall Planters", desc:"Stunning wall-mounted planters — crescents and hexagons that transform any vertical space.", anchor:"wall-planters", icon:'<svg viewBox="0 0 24 24"><path d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/></svg>'},
+  hanging: {title:"Hanging Bowls", desc:"Eye-catching hanging spheres and sky rings for lobbies, atriums, and open-plan spaces.", anchor:"hanging", icon:'<svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/></svg>'},
+  liner: {title:"Liners", desc:"Replacement liners and liner pots for easy plant changes and maintenance.", anchor:"liners", icon:'<svg viewBox="0 0 24 24"><path d="M2 20h20v-4H2v4zm2-3h2v2H4v-2zM2 4v4h20V4H2zm4 3H4V5h2v2zm-4 7h20v-4H2v4zm2-3h2v2H4v-2z"/></svg>'}
+};
+
+let activeMoa = 24;
+let activeCategory = 'all';
+let searchQuery = '';
+
+// ── RENDER ──
+function init() {
+  renderColours();
+  updateCounts();
+  renderProducts();
+  setupListeners();
+}
+
+function renderColours() {
+  const grid = document.getElementById('colorGrid');
+  grid.innerHTML = colours.map(c =>
+    `<div class="color-swatch" style="background:${c.hex}"><div class="tooltip">${c.name}</div></div>`
+  ).join('');
+}
+
+function updateCounts() {
+  const cats = {all:0,fiberglass:0,polyethylene:0,trough:0,'desk-bowl':0,wall:0,hanging:0,liner:0};
+  products.forEach(p => { cats.all++; cats[p.cat]++; });
+  document.getElementById('countAll').textContent = cats.all;
+  document.getElementById('countFiberglass').textContent = cats.fiberglass;
+  document.getElementById('countPoly').textContent = cats.polyethylene;
+  document.getElementById('countTrough').textContent = cats.trough;
+  document.getElementById('countDesk').textContent = cats['desk-bowl'];
+  document.getElementById('countWall').textContent = cats.wall;
+  document.getElementById('countHanging').textContent = cats.hanging;
+  document.getElementById('countLiner').textContent = cats.liner;
+}
+
+function getFilteredProducts() {
+  return products.filter(p => {
+    const matchCat = activeCategory === 'all' || p.cat === activeCategory;
+    if (!matchCat) return false;
+    if (!searchQuery) return true;
+    const q = searchQuery.toLowerCase();
+    const searchStr = `${p.name} ${p.type} ${p.material} ${p.finish||''} ${p.h} ${p.w} ${p.l||''}`.toLowerCase();
+    return searchStr.includes(q);
+  });
+}
+
+function renderProducts() {
+  const filtered = getFilteredProducts();
+  const sections = document.getElementById('productSections');
+  const noResults = document.getElementById('noResults');
+
+  if (filtered.length === 0) {
+    sections.innerHTML = '';
+    noResults.style.display = 'block';
+    document.getElementById('visibleCount').textContent = '0';
+    return;
+  }
+
+  noResults.style.display = 'none';
+  document.getElementById('visibleCount').textContent = filtered.length;
+
+  // Group by category
+  const grouped = {};
+  filtered.forEach(p => {
+    if (!grouped[p.cat]) grouped[p.cat] = [];
+    grouped[p.cat].push(p);
+  });
+
+  const catOrder = ['fiberglass','polyethylene','trough','desk-bowl','wall','hanging','liner'];
+  let html = '';
+
+  catOrder.forEach(cat => {
+    if (!grouped[cat]) return;
+    const cfg = categories[cat];
+    html += `
+      <div class="category-section" id="${cfg.anchor}">
+        <div class="category-title">
+          <div class="cat-icon">${cfg.icon}</div>
+          ${cfg.title}
+        </div>
+        <p class="category-desc">${cfg.desc}</p>
+        <div class="product-grid">
+          ${grouped[cat].map(p => renderCard(p)).join('')}
+        </div>
+      </div>
+    `;
+  });
+
+  sections.innerHTML = html;
+}
+
+function renderCard(p) {
+  const priceKey = `p${activeMoa}`;
+  const dims = [];
+  if (p.h && p.h !== '—') dims.push({label:'Height',value:p.h});
+  if (p.w && p.w !== '—') dims.push({label:'Width',value:p.w});
+  if (p.l) dims.push({label:'Length',value:p.l});
+
+  return `
+    <div class="product-card">
+      <div class="card-top">
+        <span class="card-material">${p.material}</span>
+        ${p.finish ? `<span class="card-finish">${p.finish}</span>` : ''}
+        <div class="card-name">${p.name}</div>
+      </div>
+      <div class="card-body">
+        ${dims.length > 0 ? `
+          <div class="card-dims">
+            ${dims.map(d => `<div class="dim"><span class="dim-label">${d.label}</span><span class="dim-value">${d.value}</span></div>`).join('')}
+          </div>
+        ` : ''}
+        <div class="card-divider"></div>
+        <div class="card-pricing">
+          <div class="price-col ${activeMoa===12?'best':''}">
+            <div class="price-term">12 Mo</div>
+            <div class="price-value">R${p.p12.toFixed(0)}</div>
+            <div class="price-unit">/month</div>
+          </div>
+          <div class="price-col ${activeMoa===24?'best':''}">
+            <div class="price-term">24 Mo</div>
+            <div class="price-value">R${p.p24.toFixed(0)}</div>
+            <div class="price-unit">/month</div>
+          </div>
+          <div class="price-col ${activeMoa===36?'best':''}">
+            <div class="price-term">36 Mo</div>
+            <div class="price-value">R${p.p36.toFixed(0)}</div>
+            <div class="price-unit">/month</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function setupListeners() {
+  // Category pills
+  document.querySelectorAll('.pill').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.pill').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeCategory = btn.dataset.category;
+      renderProducts();
+    });
+  });
+
+  // MOA toggle
+  document.querySelectorAll('.moa-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.moa-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeMoa = parseInt(btn.dataset.moa);
+      renderProducts();
+    });
+  });
+
+  // Search
+  let debounce;
+  document.getElementById('searchInput').addEventListener('input', (e) => {
+    clearTimeout(debounce);
+    debounce = setTimeout(() => {
+      searchQuery = e.target.value;
+      renderProducts();
+    }, 200);
+  });
+
+  // Header nav active state
+  document.querySelectorAll('.header-nav a').forEach(link => {
+    link.addEventListener('click', () => {
+      document.querySelectorAll('.header-nav a').forEach(l => l.classList.remove('active'));
+      link.classList.add('active');
+    });
+  });
+}
+
+document.addEventListener('DOMContentLoaded', init);
+</script>
+</body>
+</html>
