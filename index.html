@@ -107,8 +107,7 @@ body {
   transition: all 0.2s;
 }
 
-.header-nav a:hover,
-.header-nav a.active {
+.header-nav a:hover, .header-nav a.active {
   color: var(--white);
   background: rgba(255,255,255,0.1);
 }
@@ -116,7 +115,7 @@ body {
 /* ─── HERO ─── */
 .hero {
   background: linear-gradient(135deg, var(--blue) 0%, var(--blue-light) 50%, var(--green) 100%);
-  padding: 80px 24px 60px;
+  padding: 60px 24px 40px;
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -133,17 +132,6 @@ body {
   border-radius: 50%;
 }
 
-.hero::after {
-  content: '';
-  position: absolute;
-  bottom: -30%;
-  left: -10%;
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(circle, rgba(0,118,55,0.2) 0%, transparent 70%);
-  border-radius: 50%;
-}
-
 .hero-content {
   position: relative;
   z-index: 1;
@@ -153,29 +141,26 @@ body {
 
 .hero h1 {
   color: var(--white);
-  font-size: 38px;
+  font-size: 36px;
   font-weight: 300;
   letter-spacing: 4px;
   text-transform: uppercase;
   margin-bottom: 12px;
 }
 
-.hero h1 span {
-  font-weight: 700;
-  color: var(--lime);
-}
+.hero h1 span { font-weight: 700; color: var(--lime); }
 
 .hero p {
   color: rgba(255,255,255,0.8);
   font-size: 16px;
   max-width: 520px;
-  margin: 0 auto 32px;
+  margin: 0 auto 28px;
   line-height: 1.8;
 }
 
 .hero-badges {
   display: flex;
-  gap: 16px;
+  gap: 14px;
   justify-content: center;
   flex-wrap: wrap;
 }
@@ -189,7 +174,6 @@ body {
   border-radius: 50px;
   font-size: 13px;
   font-weight: 600;
-  letter-spacing: 0.5px;
 }
 
 .hero-badge svg {
@@ -200,7 +184,126 @@ body {
   fill: var(--lime);
 }
 
-/* ─── SEARCH & FILTER BAR ─── */
+/* ─── GALLERY ─── */
+.gallery {
+  background: var(--white);
+  padding: 48px 24px;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.gallery-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.gallery-title {
+  text-align: center;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--gray-400);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 24px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 12px;
+}
+
+.gallery-item {
+  border-radius: var(--radius);
+  overflow: hidden;
+  aspect-ratio: 1;
+  position: relative;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.08);
+}
+
+.gallery-item .gallery-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0,50,71,0.85));
+  color: var(--white);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  padding: 20px 12px 10px;
+  text-transform: uppercase;
+}
+
+/* ─── COLOUR SECTION ─── */
+.colour-section {
+  background: var(--white);
+  padding: 48px 24px;
+  text-align: center;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.colour-inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.colour-section h2 {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--blue);
+  margin-bottom: 8px;
+}
+
+.colour-section p {
+  color: var(--gray-600);
+  font-size: 15px;
+  margin-bottom: 28px;
+  line-height: 1.7;
+}
+
+.colour-spectrum {
+  height: 40px;
+  border-radius: 20px;
+  background: linear-gradient(90deg,
+    #c0392b 0%, #e74c3c 8%, #e67e22 16%, #f1c40f 24%,
+    #9dc44c 32%, #27ae60 40%, #007637 48%, #2a9d8f 56%,
+    #00acc1 64%, #2e5ea8 72%, #003247 80%, #7b2d8e 88%,
+    #d63384 96%, #c0392b 100%
+  );
+  margin-bottom: 16px;
+  box-shadow: var(--shadow-md);
+}
+
+.colour-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0,118,55,0.08);
+  color: var(--green);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 20px;
+  border-radius: 50px;
+  border: 1px solid rgba(0,118,55,0.2);
+}
+
+.colour-note svg {
+  width: 16px;
+  height: 16px;
+  fill: var(--green);
+}
+
+/* ─── FILTER BAR ─── */
 .filter-bar {
   background: var(--white);
   border-bottom: 1px solid var(--gray-200);
@@ -247,9 +350,7 @@ body {
   transition: border-color 0.2s;
 }
 
-.search-box input:focus {
-  border-color: var(--green);
-}
+.search-box input:focus { border-color: var(--green); }
 
 .filter-pills {
   display: flex;
@@ -271,31 +372,11 @@ body {
   white-space: nowrap;
 }
 
-.pill:hover {
-  border-color: var(--green);
-  color: var(--green);
-}
+.pill:hover { border-color: var(--green); color: var(--green); }
+.pill.active { background: var(--green); border-color: var(--green); color: var(--white); }
+.pill .count { display: inline-block; background: rgba(0,0,0,0.1); padding: 1px 7px; border-radius: 10px; font-size: 11px; margin-left: 4px; }
+.pill.active .count { background: rgba(255,255,255,0.25); }
 
-.pill.active {
-  background: var(--green);
-  border-color: var(--green);
-  color: var(--white);
-}
-
-.pill .count {
-  display: inline-block;
-  background: rgba(0,0,0,0.1);
-  padding: 1px 7px;
-  border-radius: 10px;
-  font-size: 11px;
-  margin-left: 4px;
-}
-
-.pill.active .count {
-  background: rgba(255,255,255,0.25);
-}
-
-/* ─── MOA TOGGLE ─── */
 .moa-toggle {
   display: flex;
   border: 2px solid var(--blue);
@@ -316,33 +397,18 @@ body {
   white-space: nowrap;
 }
 
-.moa-btn.active {
-  background: var(--blue);
-  color: var(--white);
-}
+.moa-btn.active { background: var(--blue); color: var(--white); }
+.moa-btn:hover:not(.active) { background: var(--gray-100); }
 
-.moa-btn:hover:not(.active) {
-  background: var(--gray-100);
-}
-
-/* ─── RESULTS INFO ─── */
+/* ─── RESULTS ─── */
 .results-info {
   max-width: 1280px;
   margin: 24px auto 0;
   padding: 0 24px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
-.results-count {
-  font-size: 14px;
-  color: var(--gray-400);
-}
-
-.results-count strong {
-  color: var(--blue);
-}
+.results-count { font-size: 14px; color: var(--gray-400); }
+.results-count strong { color: var(--blue); }
 
 /* ─── CATEGORY SECTIONS ─── */
 .category-section {
@@ -351,44 +417,44 @@ body {
   padding: 32px 24px 0;
 }
 
-.category-title {
-  font-size: 22px;
-  font-weight: 700;
-  color: var(--blue);
-  margin-bottom: 4px;
+.category-header {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
+  margin-bottom: 4px;
 }
 
-.category-title .cat-icon {
-  width: 32px;
-  height: 32px;
+.cat-icon {
+  width: 36px;
+  height: 36px;
   background: var(--green);
   border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
 
-.category-title .cat-icon svg {
-  width: 18px;
-  height: 18px;
-  fill: var(--white);
+.cat-icon svg { width: 20px; height: 20px; fill: var(--white); }
+
+.category-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--blue);
 }
 
 .category-desc {
   color: var(--gray-400);
   font-size: 14px;
   margin-bottom: 20px;
-  margin-left: 42px;
+  margin-left: 48px;
 }
 
 /* ─── PRODUCT GRID ─── */
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 18px;
   margin-bottom: 40px;
 }
 
@@ -398,7 +464,9 @@ body {
   border: 1px solid var(--gray-200);
   overflow: hidden;
   transition: all 0.3s ease;
-  cursor: default;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.4s ease forwards;
 }
 
 .product-card:hover {
@@ -407,21 +475,39 @@ body {
   border-color: transparent;
 }
 
-.card-top {
-  background: linear-gradient(135deg, var(--blue) 0%, var(--blue-light) 100%);
-  padding: 20px;
-  position: relative;
-  min-height: 100px;
+@keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+.product-card:nth-child(1) { animation-delay: 0s; }
+.product-card:nth-child(2) { animation-delay: 0.05s; }
+.product-card:nth-child(3) { animation-delay: 0.1s; }
+.product-card:nth-child(4) { animation-delay: 0.15s; }
+
+/* Card visual area — SVG illustration */
+.card-visual {
+  background: linear-gradient(135deg, #e8f0e3 0%, #d4e4cc 100%);
+  height: 180px;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
 }
 
-.card-material {
+.card-visual svg.planter-shape {
+  height: 140px;
+  width: auto;
+  filter: drop-shadow(0 4px 12px rgba(0,50,71,0.15));
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover .card-visual svg.planter-shape {
+  transform: scale(1.05);
+}
+
+.card-material-tag {
   position: absolute;
-  top: 12px;
-  right: 12px;
-  background: rgba(255,255,255,0.15);
+  top: 10px;
+  right: 10px;
+  background: rgba(0,50,71,0.8);
   color: var(--white);
   font-size: 10px;
   font-weight: 700;
@@ -431,10 +517,10 @@ body {
   border-radius: 4px;
 }
 
-.card-finish {
+.card-finish-tag {
   position: absolute;
-  top: 12px;
-  left: 12px;
+  top: 10px;
+  left: 10px;
   background: var(--lime);
   color: var(--blue);
   font-size: 10px;
@@ -445,15 +531,15 @@ body {
   border-radius: 4px;
 }
 
-.card-name {
-  color: var(--white);
-  font-size: 17px;
-  font-weight: 700;
-  line-height: 1.3;
-}
-
 .card-body {
   padding: 16px 20px 20px;
+}
+
+.card-name {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--blue);
+  margin-bottom: 10px;
 }
 
 .card-dims {
@@ -462,30 +548,11 @@ body {
   margin-bottom: 14px;
 }
 
-.dim {
-  display: flex;
-  flex-direction: column;
-}
+.dim { display: flex; flex-direction: column; }
+.dim-label { font-size: 10px; font-weight: 700; color: var(--gray-400); text-transform: uppercase; letter-spacing: 1px; }
+.dim-value { font-size: 15px; font-weight: 600; color: var(--blue); }
 
-.dim-label {
-  font-size: 10px;
-  font-weight: 700;
-  color: var(--gray-400);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.dim-value {
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--blue);
-}
-
-.card-divider {
-  height: 1px;
-  background: var(--gray-200);
-  margin: 0 0 14px;
-}
+.card-divider { height: 1px; background: var(--gray-200); margin: 0 0 14px; }
 
 .card-pricing {
   display: grid;
@@ -505,33 +572,11 @@ body {
   border: 1px solid rgba(0,118,55,0.2);
 }
 
-.price-term {
-  font-size: 10px;
-  font-weight: 700;
-  color: var(--gray-400);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.price-col.best .price-term {
-  color: var(--green);
-}
-
-.price-value {
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--blue);
-  margin-top: 2px;
-}
-
-.price-col.best .price-value {
-  color: var(--green);
-}
-
-.price-unit {
-  font-size: 10px;
-  color: var(--gray-400);
-}
+.price-term { font-size: 10px; font-weight: 700; color: var(--gray-400); text-transform: uppercase; letter-spacing: 0.5px; }
+.price-col.best .price-term { color: var(--green); }
+.price-value { font-size: 15px; font-weight: 700; color: var(--blue); margin-top: 2px; }
+.price-col.best .price-value { color: var(--green); }
+.price-unit { font-size: 10px; color: var(--gray-400); }
 
 /* ─── INFO SECTION ─── */
 .info-section {
@@ -549,10 +594,7 @@ body {
   gap: 40px;
 }
 
-.info-card {
-  text-align: center;
-  padding: 24px;
-}
+.info-card { text-align: center; padding: 24px; }
 
 .info-icon {
   width: 56px;
@@ -565,25 +607,9 @@ body {
   margin: 0 auto 16px;
 }
 
-.info-icon svg {
-  width: 26px;
-  height: 26px;
-  fill: var(--white);
-}
-
-.info-card h3 {
-  color: var(--blue);
-  font-size: 16px;
-  font-weight: 700;
-  margin-bottom: 8px;
-  letter-spacing: 0.5px;
-}
-
-.info-card p {
-  color: var(--gray-600);
-  font-size: 14px;
-  line-height: 1.7;
-}
+.info-icon svg { width: 26px; height: 26px; fill: var(--white); }
+.info-card h3 { color: var(--blue); font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+.info-card p { color: var(--gray-600); font-size: 14px; line-height: 1.7; }
 
 /* ─── FOOTER ─── */
 .footer {
@@ -594,14 +620,8 @@ body {
   font-size: 13px;
 }
 
-.footer a {
-  color: var(--lime);
-  text-decoration: none;
-}
-
-.footer strong {
-  color: var(--white);
-}
+.footer a { color: var(--lime); text-decoration: none; }
+.footer strong { color: var(--white); }
 
 /* ─── NO RESULTS ─── */
 .no-results {
@@ -610,80 +630,21 @@ body {
   color: var(--gray-400);
 }
 
-.no-results svg {
-  width: 48px;
-  height: 48px;
-  fill: var(--gray-200);
-  margin-bottom: 16px;
-}
-
-.no-results h3 {
-  color: var(--gray-600);
-  margin-bottom: 8px;
-}
-
-/* ─── COLOR GRID ─── */
-.color-section {
-  max-width: 1280px;
-  margin: 32px auto 0;
-  padding: 0 24px;
-}
-
-.color-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 40px;
-}
-
-.color-swatch {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  border: 3px solid var(--white);
-  box-shadow: var(--shadow-md);
-  position: relative;
-  cursor: default;
-  transition: transform 0.2s;
-}
-
-.color-swatch:hover {
-  transform: scale(1.15);
-}
-
-.color-swatch .tooltip {
-  position: absolute;
-  bottom: calc(100% + 8px);
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--blue);
-  color: var(--white);
-  font-size: 11px;
-  font-weight: 600;
-  padding: 4px 10px;
-  border-radius: 4px;
-  white-space: nowrap;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.2s;
-}
-
-.color-swatch:hover .tooltip {
-  opacity: 1;
-}
+.no-results svg { width: 48px; height: 48px; fill: var(--gray-200); margin-bottom: 16px; }
+.no-results h3 { color: var(--gray-600); margin-bottom: 8px; }
 
 /* ─── RESPONSIVE ─── */
 @media (max-width: 768px) {
   .header-nav { display: none; }
   .hero h1 { font-size: 26px; letter-spacing: 2px; }
-  .hero { padding: 50px 20px 40px; }
+  .hero { padding: 40px 20px 30px; }
   .filter-inner { flex-direction: column; }
   .filter-pills { width: 100%; overflow-x: auto; flex-wrap: nowrap; padding-bottom: 4px; }
   .moa-toggle { width: 100%; }
   .moa-btn { flex: 1; text-align: center; }
   .product-grid { grid-template-columns: 1fr; }
   .info-inner { grid-template-columns: 1fr; }
-  .results-info { flex-direction: column; gap: 8px; }
+  .gallery-grid { grid-template-columns: repeat(3, 1fr); }
 }
 
 @media (max-width: 480px) {
@@ -691,28 +652,8 @@ body {
   .logo-text { font-size: 16px; }
   .header-inner { height: 60px; }
   .filter-bar { top: 60px; }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
 }
-
-/* ─── SCROLL ANIMATIONS ─── */
-.product-card {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeUp 0.4s ease forwards;
-}
-
-@keyframes fadeUp {
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* Stagger card animations */
-.product-card:nth-child(1) { animation-delay: 0s; }
-.product-card:nth-child(2) { animation-delay: 0.05s; }
-.product-card:nth-child(3) { animation-delay: 0.1s; }
-.product-card:nth-child(4) { animation-delay: 0.15s; }
-.product-card:nth-child(5) { animation-delay: 0.2s; }
-.product-card:nth-child(6) { animation-delay: 0.25s; }
-.product-card:nth-child(7) { animation-delay: 0.3s; }
-.product-card:nth-child(8) { animation-delay: 0.35s; }
 </style>
 </head>
 <body>
@@ -729,12 +670,12 @@ body {
     </div>
     <nav>
       <ul class="header-nav">
-        <li><a href="#planters" class="active">Planters</a></li>
+        <li><a href="#gallery-section">Gallery</a></li>
+        <li><a href="#planters">Planters</a></li>
         <li><a href="#troughs">Troughs</a></li>
         <li><a href="#desk-bowls">Desk Bowls</a></li>
         <li><a href="#wall-planters">Wall</a></li>
         <li><a href="#hanging">Hanging</a></li>
-        <li><a href="#liners">Liners</a></li>
         <li><a href="#info">Info</a></li>
       </ul>
     </nav>
@@ -745,7 +686,7 @@ body {
 <section class="hero">
   <div class="hero-content">
     <h1>Inspiring <span>Your Senses</span></h1>
-    <p>Explore our complete range of premium indoor planters, troughs, desk bowls, and wall features. Every piece available in your brand colours.</p>
+    <p>Explore our complete range of premium indoor planters, troughs, desk bowls, and wall features. Every piece available in any colour to match your brand.</p>
     <div class="hero-badges">
       <div class="hero-badge">
         <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
@@ -759,6 +700,52 @@ body {
         <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
         12, 24 or 36 Month MOA
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery" id="gallery-section">
+  <div class="gallery-inner">
+    <div class="gallery-title">Our Planters in Action</div>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="img/lifestyle-1.jpg" alt="Tapered planter in office lobby" loading="lazy">
+        <div class="gallery-label">Office Lobby</div>
+      </div>
+      <div class="gallery-item">
+        <img src="img/lifestyle-2.jpg" alt="Square planter in boardroom" loading="lazy">
+        <div class="gallery-label">Boardroom</div>
+      </div>
+      <div class="gallery-item">
+        <img src="img/lifestyle-3.jpg" alt="Desk bowl with snake plant" loading="lazy">
+        <div class="gallery-label">Desk Bowl</div>
+      </div>
+      <div class="gallery-item">
+        <img src="img/lifestyle-4.jpg" alt="Trough planters under artwork" loading="lazy">
+        <div class="gallery-label">Troughs</div>
+      </div>
+      <div class="gallery-item">
+        <img src="img/lifestyle-5.jpg" alt="Egg planters in hotel lobby" loading="lazy">
+        <div class="gallery-label">Hotel Foyer</div>
+      </div>
+      <div class="gallery-item">
+        <img src="img/lifestyle-6.jpg" alt="White desk bowl with cactus" loading="lazy">
+        <div class="gallery-label">Feature Piece</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COLOUR SECTION -->
+<section class="colour-section" id="colours">
+  <div class="colour-inner">
+    <h2>Available in Any Colour</h2>
+    <p>We don't limit you to a fixed palette. Every planter in our range can be finished in <strong>any colour</strong> — matched precisely to your corporate brand, interior scheme, or personal preference.</p>
+    <div class="colour-spectrum"></div>
+    <div class="colour-note">
+      <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+      Send us your brand colour codes and we'll match them exactly
     </div>
   </div>
 </section>
@@ -793,16 +780,6 @@ body {
   <div class="results-count">Showing <strong id="visibleCount">0</strong> products</div>
 </div>
 
-<!-- AVAILABLE COLOURS -->
-<div class="color-section" id="colours">
-  <div class="category-title">
-    <div class="cat-icon"><svg viewBox="0 0 24 24"><path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9c.83 0 1.5-.67 1.5-1.5 0-.39-.15-.74-.39-1.01-.23-.26-.38-.61-.38-1 0-.83.67-1.5 1.5-1.5H16c2.76 0 5-2.24 5-5 0-4.42-4.03-8-9-8zm-5.5 9c-.83 0-1.5-.67-1.5-1.5S5.67 9 6.5 9 8 9.67 8 10.5 7.33 12 6.5 12zm3-4C8.67 8 8 7.33 8 6.5S8.67 5 9.5 5s1.5.67 1.5 1.5S10.33 8 9.5 8zm5 0c-.83 0-1.5-.67-1.5-1.5S13.67 5 14.5 5s1.5.67 1.5 1.5S15.33 8 14.5 8zm3 4c-.83 0-1.5-.67-1.5-1.5S16.67 9 17.5 9s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg></div>
-    Available Colours
-  </div>
-  <p class="category-desc">All planters can be finished in any of these standard colours — or matched to your brand identity.</p>
-  <div class="color-grid" id="colorGrid"></div>
-</div>
-
 <!-- PRODUCT SECTIONS -->
 <div id="productSections"></div>
 
@@ -817,32 +794,24 @@ body {
 <section class="info-section" id="info">
   <div class="info-inner">
     <div class="info-card">
-      <div class="info-icon">
-        <svg viewBox="0 0 24 24"><path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9c.83 0 1.5-.67 1.5-1.5 0-.39-.15-.74-.39-1.01-.23-.26-.38-.61-.38-1 0-.83.67-1.5 1.5-1.5H16c2.76 0 5-2.24 5-5 0-4.42-4.03-8-9-8z"/></svg>
-      </div>
-      <h3>Custom Brand Colours</h3>
-      <p>Every planter can be finished in your business brand colours. From corporate blues to vibrant accent tones, we match any shade to bring your space to life.</p>
+      <div class="info-icon"><svg viewBox="0 0 24 24"><path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9c.83 0 1.5-.67 1.5-1.5 0-.39-.15-.74-.39-1.01-.23-.26-.38-.61-.38-1 0-.83.67-1.5 1.5-1.5H16c2.76 0 5-2.24 5-5 0-4.42-4.03-8-9-8z"/></svg></div>
+      <h3>Any Colour You Want</h3>
+      <p>Every planter can be finished in your exact brand colours. Send us your hex codes, Pantone reference, or a sample — we'll match it perfectly.</p>
     </div>
     <div class="info-card">
-      <div class="info-icon">
-        <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
-      </div>
+      <div class="info-icon"><svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg></div>
       <h3>10 Working Days</h3>
       <p>From the day you sign your Memorandum of Agreement (MOA), your planters are prepared and delivered within approximately 10 working days.</p>
     </div>
     <div class="info-card">
-      <div class="info-icon">
-        <svg viewBox="0 0 24 24"><path d="M17 1H7c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-2-2-2zm0 18H7V5h10v14z"/></svg>
-      </div>
+      <div class="info-icon"><svg viewBox="0 0 24 24"><path d="M17 1H7c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-2-2-2zm0 18H7V5h10v14z"/></svg></div>
       <h3>Flexible Rental Terms</h3>
       <p>Choose from 12, 24, or 36-month MOA terms. Longer commitments offer better monthly rates. All rentals include maintenance and plant care.</p>
     </div>
     <div class="info-card">
-      <div class="info-icon">
-        <svg viewBox="0 0 24 24"><path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/></svg>
-      </div>
+      <div class="info-icon"><svg viewBox="0 0 24 24"><path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/></svg></div>
       <h3>Full Plant Care Included</h3>
-      <p>Our expert technicians visit your premises regularly to water, feed, prune, and maintain all plants. If a plant isn't thriving, we replace it at no extra charge.</p>
+      <p>Our expert technicians visit regularly to water, feed, prune, and maintain all plants. If a plant isn't thriving, we replace it at no extra charge.</p>
     </div>
   </div>
 </section>
@@ -855,6 +824,121 @@ body {
 </footer>
 
 <script>
+// ── SVG SHAPE TEMPLATES ──
+// Each shape is a planter silhouette with a plant on top
+const SHAPES = {
+  tallTaper: `<svg class="planter-shape" viewBox="0 0 120 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <ellipse cx="60" cy="58" rx="28" ry="40" fill="#3a7d44" opacity="0.7"/>
+    <ellipse cx="48" cy="50" rx="18" ry="30" fill="#4a9d54" opacity="0.6"/>
+    <ellipse cx="72" cy="48" rx="16" ry="28" fill="#2d6b3a" opacity="0.5"/>
+    <path d="M38 95 L30 190 C30 195 90 195 90 190 L82 95 Z" fill="PCOLOR" stroke="rgba(0,0,0,0.08)" stroke-width="1"/>
+    <ellipse cx="60" cy="95" rx="22" ry="6" fill="PCOLOR" stroke="rgba(0,0,0,0.05)"/>
+    <ellipse cx="60" cy="95" rx="18" ry="4" fill="rgba(0,0,0,0.06)"/>
+  </svg>`,
+  tallSquare: `<svg class="planter-shape" viewBox="0 0 120 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <ellipse cx="60" cy="52" rx="30" ry="42" fill="#3a7d44" opacity="0.7"/>
+    <ellipse cx="46" cy="46" rx="18" ry="28" fill="#4a9d54" opacity="0.6"/>
+    <ellipse cx="74" cy="44" rx="16" ry="26" fill="#2d6b3a" opacity="0.5"/>
+    <rect x="32" y="92" width="56" height="100" rx="3" fill="PCOLOR" stroke="rgba(0,0,0,0.08)"/>
+    <rect x="34" y="92" width="52" height="8" rx="2" fill="rgba(255,255,255,0.15)"/>
+  </svg>`,
+  round: `<svg class="planter-shape" viewBox="0 0 140 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <ellipse cx="70" cy="50" rx="32" ry="40" fill="#3a7d44" opacity="0.7"/>
+    <ellipse cx="56" cy="44" rx="20" ry="28" fill="#4a9d54" opacity="0.6"/>
+    <ellipse cx="84" cy="42" rx="18" ry="26" fill="#2d6b3a" opacity="0.5"/>
+    <path d="M30 110 C30 80 110 80 110 110 C110 155 100 170 70 170 C40 170 30 155 30 110Z" fill="PCOLOR" stroke="rgba(0,0,0,0.08)"/>
+    <ellipse cx="70" cy="95" rx="35" ry="8" fill="rgba(255,255,255,0.12)"/>
+  </svg>`,
+  bowl: `<svg class="planter-shape" viewBox="0 0 140 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M50 30 C50 10 90 10 90 30 L88 34 C88 24 52 24 52 34Z" fill="#3a7d44" opacity="0.7"/>
+    <path d="M58 28 C58 14 82 14 82 28" fill="#4a9d54" opacity="0.6"/>
+    <path d="M25 55 C25 40 115 40 115 55 C115 85 100 100 70 100 C40 100 25 85 25 55Z" fill="PCOLOR" stroke="rgba(0,0,0,0.08)"/>
+    <ellipse cx="70" cy="50" rx="40" ry="8" fill="rgba(255,255,255,0.12)"/>
+    <circle cx="62" cy="52" r="4" fill="rgba(0,0,0,0.04)"/>
+    <circle cx="78" cy="54" r="3" fill="rgba(0,0,0,0.04)"/>
+  </svg>`,
+  trough: `<svg class="planter-shape" viewBox="0 0 200 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M40 28 C40 8 70 8 70 28" fill="#3a7d44" opacity="0.7"/>
+    <path d="M80 22 C80 4 108 4 108 22" fill="#4a9d54" opacity="0.6"/>
+    <path d="M120 26 C120 10 148 10 148 26" fill="#2d6b3a" opacity="0.5"/>
+    <rect x="15" y="44" width="170" height="70" rx="4" fill="PCOLOR" stroke="rgba(0,0,0,0.08)"/>
+    <rect x="17" y="44" width="166" height="10" rx="3" fill="rgba(255,255,255,0.12)"/>
+  </svg>`,
+  wallCrescent: `<svg class="planter-shape" viewBox="0 0 160 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="30" y="0" width="100" height="6" rx="3" fill="rgba(0,0,0,0.15)"/>
+    <path d="M35 6 L35 30 C35 50 125 50 125 30 L125 6" fill="PCOLOR" stroke="rgba(0,0,0,0.08)"/>
+    <path d="M50 24 C50 10 80 8 80 24" fill="#3a7d44" opacity="0.7"/>
+    <path d="M72 22 C72 10 100 10 100 22" fill="#4a9d54" opacity="0.6"/>
+    <ellipse cx="80" cy="20" rx="38" ry="6" fill="rgba(255,255,255,0.1)"/>
+  </svg>`,
+  hangingSphere: `<svg class="planter-shape" viewBox="0 0 120 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <line x1="60" y1="0" x2="60" y2="40" stroke="rgba(0,0,0,0.2)" stroke-width="2"/>
+    <line x1="40" y1="38" x2="60" y2="40" stroke="rgba(0,0,0,0.15)" stroke-width="1.5"/>
+    <line x1="80" y1="38" x2="60" y2="40" stroke="rgba(0,0,0,0.15)" stroke-width="1.5"/>
+    <circle cx="60" cy="75" r="35" fill="PCOLOR" stroke="rgba(0,0,0,0.08)"/>
+    <ellipse cx="60" cy="62" rx="26" ry="6" fill="rgba(255,255,255,0.12)"/>
+    <path d="M44 60 C44 48 56 46 56 60" fill="#3a7d44" opacity="0.7"/>
+    <path d="M56 58 C56 46 72 44 72 58" fill="#4a9d54" opacity="0.6"/>
+  </svg>`,
+  liner: `<svg class="planter-shape" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M28 20 L22 100 C22 108 98 108 98 100 L92 20 Z" fill="PCOLOR" opacity="0.6" stroke="rgba(0,0,0,0.1)" stroke-width="1" stroke-dasharray="4 3"/>
+    <ellipse cx="60" cy="20" rx="32" ry="8" fill="PCOLOR" opacity="0.5" stroke="rgba(0,0,0,0.1)" stroke-dasharray="4 3"/>
+    <ellipse cx="60" cy="20" rx="26" ry="5" fill="rgba(0,0,0,0.04)"/>
+  </svg>`,
+  iris: `<svg class="planter-shape" viewBox="0 0 140 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <ellipse cx="70" cy="52" rx="30" ry="42" fill="#3a7d44" opacity="0.7"/>
+    <ellipse cx="56" cy="46" rx="18" ry="28" fill="#4a9d54" opacity="0.6"/>
+    <ellipse cx="84" cy="44" rx="16" ry="26" fill="#2d6b3a" opacity="0.5"/>
+    <path d="M42 95 C42 80 98 80 98 95 L92 186 C92 192 48 192 48 186 Z" fill="PCOLOR" stroke="rgba(0,0,0,0.08)"/>
+    <ellipse cx="70" cy="92" rx="28" ry="7" fill="rgba(255,255,255,0.12)"/>
+  </svg>`,
+  egg: `<svg class="planter-shape" viewBox="0 0 130 190" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <ellipse cx="65" cy="48" rx="26" ry="36" fill="#3a7d44" opacity="0.7"/>
+    <ellipse cx="54" cy="42" rx="16" ry="24" fill="#4a9d54" opacity="0.6"/>
+    <path d="M65 70 C30 70 22 120 22 145 C22 175 42 185 65 185 C88 185 108 175 108 145 C108 120 100 70 65 70Z" fill="PCOLOR" stroke="rgba(0,0,0,0.08)"/>
+    <ellipse cx="65" cy="90" rx="26" ry="6" fill="rgba(255,255,255,0.12)"/>
+  </svg>`,
+  hexWall: `<svg class="planter-shape" viewBox="0 0 140 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <polygon points="70,8 120,32 120,80 70,104 20,80 20,32" fill="PCOLOR" stroke="rgba(0,0,0,0.08)" stroke-width="1"/>
+    <polygon points="70,16 112,36 112,76 70,96 28,76 28,36" fill="rgba(255,255,255,0.08)"/>
+    <path d="M50 50 C50 34 70 30 70 50" fill="#3a7d44" opacity="0.7"/>
+    <path d="M62 48 C62 34 82 32 82 48" fill="#4a9d54" opacity="0.6"/>
+  </svg>`
+};
+
+// Map product names to shape types
+function getShape(p) {
+  const n = p.name.toLowerCase();
+  const c = p.cat;
+  if (c === 'liner') return 'liner';
+  if (c === 'trough') return 'trough';
+  if (c === 'hanging') return 'hangingSphere';
+  if (c === 'wall') {
+    if (n.includes('hex')) return 'hexWall';
+    return 'wallCrescent';
+  }
+  if (c === 'desk-bowl') return 'bowl';
+  // Planters
+  if (n.includes('iris') && (n.includes('70') || n.includes('55') || n.includes('40') || n.includes('desk'))) return 'bowl';
+  if (n.includes('iris')) return 'iris';
+  if (n.includes('bellini square') || n.includes('lunar square') || n.includes('quadriga')) return 'tallSquare';
+  if (n.includes('eden') || n.includes('gaia') || n.includes('clio') || n.includes('odyssey') || n.includes('othello')) return 'egg';
+  if (n.includes('bellini round') || n.includes('symphony') || n.includes('equinox')) return 'round';
+  if (n.includes('pegasus') || n.includes('salt') || n.includes('pepper') || n.includes('katana') || n.includes('ashley') || n.includes('athena') || n.includes('beverly') || n.includes('elgin') || n.includes('h2o') || n.includes('alpha') || n.includes('enlighten')) return 'tallTaper';
+  if (n.includes('chamonix') || n.includes('delphi') || n.includes('valentino') || n.includes('astro') || n.includes('eclipse') || n.includes('cyclone') || n.includes('ripple') || n.includes('hestia') || n.includes('lunar round')) return 'iris';
+  return 'tallTaper';
+}
+
+// Planter colour palette — rotated per card for variety
+const planterColours = ['#4a4a4a','#7a6e5d','#8b7355','#3d3d3d','#a09080','#5c5c5c','#6b5b4f','#4f4f4f','#706050','#555555'];
+
+function getSvg(p, idx) {
+  const shapeKey = getShape(p);
+  const template = SHAPES[shapeKey] || SHAPES.tallTaper;
+  const colour = planterColours[idx % planterColours.length];
+  return template.replace(/PCOLOR/g, colour);
+}
+
 // ── PRODUCT DATA ──
 const products = [
   // FIBERGLASS PLANTERS
@@ -917,8 +1001,7 @@ const products = [
   {name:"Quadriga Planter S",cat:"fiberglass",type:"Planter",h:"35cm",w:"35cm",p12:259.39,p24:234.11,p36:217.26,material:"Fiberglass"},
   {name:"Ripple Tall",cat:"fiberglass",type:"Planter",h:"90cm",w:"50cm",p12:364.99,p24:318.59,p36:287.66,material:"Fiberglass"},
   {name:"Ripple Short",cat:"fiberglass",type:"Planter",h:"60cm",w:"50cm",p12:354.56,p24:310.24,p36:280.70,material:"Fiberglass"},
-
-  // POLYETHYLENE PLANTERS
+  // POLYETHYLENE
   {name:"Ashley",cat:"polyethylene",type:"Planter",h:"92cm",w:"46cm",p12:228.50,p24:209.40,p36:196.67,material:"Polyethylene",finish:"Pigmented"},
   {name:"Ashley",cat:"polyethylene",type:"Planter",h:"92cm",w:"46cm",p12:276.39,p24:247.71,p36:228.59,material:"Polyethylene",finish:"Sprayed Standard"},
   {name:"Ashley",cat:"polyethylene",type:"Planter",h:"92cm",w:"46cm",p12:291.39,p24:259.71,p36:238.59,material:"Polyethylene",finish:"Sprayed Pearl"},
@@ -951,7 +1034,6 @@ const products = [
   {name:"Alpha-Omega",cat:"polyethylene",type:"Planter",h:"65cm",w:"43cm",p12:270.48,p24:242.99,p36:224.66,material:"Polyethylene",finish:"Sprayed Standard"},
   {name:"Alpha-Omega",cat:"polyethylene",type:"Planter",h:"65cm",w:"43cm",p12:285.41,p24:254.92,p36:234.60,material:"Polyethylene",finish:"Sprayed Pearl"},
   {name:"Alpha-Omega",cat:"polyethylene",type:"Planter",h:"65cm",w:"43cm",p12:278.03,p24:249.02,p36:229.68,material:"Polyethylene",finish:"Sprayed Metallic"},
-
   // TROUGHS
   {name:"Quadriga Trough L",cat:"trough",type:"Trough",h:"100cm",w:"35cm",l:"100cm",p12:691.21,p24:618.18,p36:569.49,material:"Fiberglass"},
   {name:"Quadriga Trough M",cat:"trough",type:"Trough",h:"80cm",w:"35cm",l:"100cm",p12:659.11,p24:592.49,p36:548.08,material:"Fiberglass"},
@@ -964,7 +1046,6 @@ const products = [
   {name:"Okino Trough Large",cat:"trough",type:"Trough",h:"31cm",w:"110cm",p12:566.63,p24:518.51,p36:486.43,material:"Fiberglass"},
   {name:"Okino Trough Small",cat:"trough",type:"Trough",h:"31cm",w:"79cm",p12:463.99,p24:421.35,p36:392.93,material:"Fiberglass"},
   {name:"Pulsar",cat:"trough",type:"Trough",h:"47cm",w:"112cm",p12:604.39,p24:548.72,p36:511.60,material:"Fiberglass"},
-
   // DESK BOWLS
   {name:"Iris Desk Bowl",cat:"desk-bowl",type:"Desk Bowl",h:"18cm",w:"23.5cm",p12:167.54,p24:149.43,p36:137.36,material:"Fiberglass"},
   {name:"Erin Desk Bowl",cat:"desk-bowl",type:"Desk Bowl",h:"12cm",w:"30.5cm",p12:172.27,p24:153.21,p36:140.51,material:"Fiberglass"},
@@ -980,14 +1061,13 @@ const products = [
   {name:"Kintra Small D/B",cat:"desk-bowl",type:"Desk Bowl",h:"7cm",w:"14.5cm",p12:101.56,p24:96.64,p36:93.37,material:"Fiberglass"},
   {name:"Quadriga Medium D/B",cat:"desk-bowl",type:"Desk Bowl",h:"25cm",w:"25cm",p12:162.21,p24:145.16,p36:133.80,material:"Fiberglass"},
   {name:"Quadriga Small D/B",cat:"desk-bowl",type:"Desk Bowl",h:"15cm",w:"15cm",p12:151.53,p24:136.63,p36:126.69,material:"Fiberglass"},
-  {name:"Quadriga Cupboard Trough",cat:"desk-bowl",type:"Desk Bowl",h:"—",w:"—",p12:241.50,p24:218.20,p36:202.67,material:"Fiberglass"},
+  {name:"Quadriga Cupboard Trough",cat:"desk-bowl",type:"Desk Bowl",h:"\u2014",w:"\u2014",p12:241.50,p24:218.20,p36:202.67,material:"Fiberglass"},
   {name:"Quadriga Window Box D/B Medium",cat:"desk-bowl",type:"Desk Bowl",h:"25cm",w:"25cm",l:"45cm",p12:234.38,p24:212.37,p36:197.69,material:"Fiberglass"},
   {name:"Quadriga Window Box D/B Small",cat:"desk-bowl",type:"Desk Bowl",h:"15cm",w:"15cm",l:"45cm",p12:227.32,p24:206.72,p36:192.98,material:"Fiberglass"},
   {name:"Bella D/B",cat:"desk-bowl",type:"Desk Bowl",h:"15cm",w:"38cm",p12:173.11,p24:153.89,p36:141.07,material:"Fiberglass"},
   {name:"Amika D/B",cat:"desk-bowl",type:"Desk Bowl",h:"13.8cm",w:"27.8cm",p12:169.42,p24:150.93,p36:138.61,material:"Fiberglass"},
   {name:"Taipan D/B",cat:"desk-bowl",type:"Desk Bowl",h:"11cm",w:"34cm",p12:169.42,p24:150.93,p36:138.61,material:"Fiberglass"},
-  {name:"Ripple D/B",cat:"desk-bowl",type:"Desk Bowl",h:"—",w:"—",p12:177.31,p24:157.25,p36:143.88,material:"Fiberglass"},
-
+  {name:"Ripple D/B",cat:"desk-bowl",type:"Desk Bowl",h:"\u2014",w:"\u2014",p12:177.31,p24:157.25,p36:143.88,material:"Fiberglass"},
   // WALL PLANTERS
   {name:"Full Crescent XL",cat:"wall",type:"Wall Planter",h:"9cm",w:"49cm",p12:207.87,p24:191.30,p36:180.26,material:"Fiberglass"},
   {name:"Full Crescent Large",cat:"wall",type:"Wall Planter",h:"9cm",w:"39cm",p12:203.84,p24:188.08,p36:177.57,material:"Fiberglass"},
@@ -999,14 +1079,12 @@ const products = [
   {name:"Hexagon Full Small",cat:"wall",type:"Wall Planter",h:"10.5cm",w:"33cm",p12:153.98,p24:138.59,p36:128.32,material:"Fiberglass"},
   {name:"Hexagon Half Large",cat:"wall",type:"Wall Planter",h:"10.5cm",w:"20cm",l:"45cm",p12:195.53,p24:181.43,p36:172.03,material:"Fiberglass"},
   {name:"Hexagon Half Small",cat:"wall",type:"Wall Planter",h:"10.5cm",w:"15.5cm",l:"33cm",p12:145.23,p24:131.59,p36:122.49,material:"Fiberglass"},
-
-  // HANGING BOWLS
+  // HANGING
   {name:"Hanging Sphere L (Standard)",cat:"hanging",type:"Hanging Bowl",h:"18cm",w:"35cm",p12:211.65,p24:194.33,p36:182.77,material:"Fiberglass",finish:"Standard Colours"},
   {name:"Hanging Sphere L (Pigmented)",cat:"hanging",type:"Hanging Bowl",h:"18cm",w:"35cm",p12:176.11,p24:165.93,p36:159.14,material:"Fiberglass",finish:"Pigmented Gel Coat"},
   {name:"Hanging Sphere S (Standard)",cat:"hanging",type:"Hanging Bowl",h:"12cm",w:"25cm",p12:157.71,p24:141.57,p36:130.81,material:"Fiberglass",finish:"Standard Colours"},
   {name:"Hanging Sphere S (Pigmented)",cat:"hanging",type:"Hanging Bowl",h:"12cm",w:"25cm",p12:121.48,p24:112.58,p36:106.65,material:"Fiberglass",finish:"Pigmented Gel Coat"},
   {name:"Sky Ring Large",cat:"hanging",type:"Hanging Bowl",h:"15cm",w:"15.5cm",l:"100cm",p12:753.20,p24:712.58,p36:685.50,material:"Fiberglass"},
-
   // LINERS
   {name:"70cm Complete Liner",cat:"liner",type:"Liner",h:"49cm",w:"69cm",p12:323.48,p24:303.03,p36:289.39,material:"Polyethylene"},
   {name:"55cm Complete Liner",cat:"liner",type:"Liner",h:"44.5cm",w:"54.5cm",p12:200.66,p24:188.93,p36:181.12,material:"Polyethylene"},
@@ -1014,48 +1092,28 @@ const products = [
   {name:"32cm Complete Liner",cat:"liner",type:"Liner",h:"29.5cm",w:"31cm",p12:143.50,p24:141.40,p36:140.00,material:"Polyethylene"},
   {name:"29cm Complete Liner",cat:"liner",type:"Liner",h:"26cm",w:"29cm",p12:143.10,p24:141.08,p36:139.74,material:"Polyethylene"},
   {name:"25cm Complete Liner",cat:"liner",type:"Liner",h:"24.5cm",w:"24.5cm",p12:138.56,p24:137.44,p36:136.70,material:"Polyethylene"},
-  {name:"40cm Liner Pot",cat:"liner",type:"Liner",h:"—",w:"—",p12:53.19,p24:51.55,p36:50.46,material:"Polyethylene"},
-  {name:"32cm Liner Pot",cat:"liner",type:"Liner",h:"—",w:"—",p12:52.04,p24:50.63,p36:49.70,material:"Polyethylene"},
+  {name:"40cm Liner Pot",cat:"liner",type:"Liner",h:"\u2014",w:"\u2014",p12:53.19,p24:51.55,p36:50.46,material:"Polyethylene"},
+  {name:"32cm Liner Pot",cat:"liner",type:"Liner",h:"\u2014",w:"\u2014",p12:52.04,p24:50.63,p36:49.70,material:"Polyethylene"},
 ];
 
-// Colours
-const colours = [
-  {name:"Black",hex:"#1a1a1a"},{name:"White",hex:"#f5f5f5"},{name:"Brown",hex:"#6d4c2e"},
-  {name:"Beige",hex:"#d4b896"},{name:"Gray",hex:"#8e8e8e"},{name:"Green",hex:"#3a7d44"},
-  {name:"Blue",hex:"#2e5ea8"},{name:"Teal",hex:"#2a9d8f"},{name:"Red",hex:"#c0392b"},
-  {name:"Orange",hex:"#e67e22"},{name:"Yellow",hex:"#d4ac0d"},{name:"Pink",hex:"#d63384"},
-  {name:"Purple",hex:"#7b2d8e"},{name:"Magenta",hex:"#c2185b"},{name:"Lavender",hex:"#9b8ec0"},
-  {name:"Cyan",hex:"#00acc1"}
-];
-
-// Category config
 const categories = {
-  fiberglass: {title:"Fiberglass Planters", desc:"Premium fiberglass planters — lightweight, durable, and available in a wide range of shapes and sizes.", anchor:"planters", icon:'<svg viewBox="0 0 24 24"><path d="M18 4V3c0-.55-.45-1-1-1H7c-.55 0-1 .45-1 1v1H3v6c0 3.87 2.84 7.08 6.55 7.65C10.58 19.56 12 20.73 12 22h0c0-1.27 1.42-2.44 2.45-4.35C18.16 17.08 21 13.87 21 10V4h-3z"/></svg>'},
-  polyethylene: {title:"Polyethylene Planters", desc:"Cost-effective polyethylene planters available in Pigmented, Sprayed Standard, Sprayed Pearl, and Sprayed Metallic finishes.", anchor:"planters-poly", icon:'<svg viewBox="0 0 24 24"><path d="M18 4V3c0-.55-.45-1-1-1H7c-.55 0-1 .45-1 1v1H3v6c0 3.87 2.84 7.08 6.55 7.65C10.58 19.56 12 20.73 12 22h0c0-1.27 1.42-2.44 2.45-4.35C18.16 17.08 21 13.87 21 10V4h-3z"/></svg>'},
-  trough: {title:"Troughs", desc:"Elegant troughs for dividing spaces, creating green partitions, and adding depth to reception areas.", anchor:"troughs", icon:'<svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14z"/></svg>'},
-  "desk-bowl": {title:"Desk Bowls", desc:"Compact desk bowls perfect for workstations, boardroom tables, and reception counters.", anchor:"desk-bowls", icon:'<svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>'},
-  wall: {title:"Wall Planters", desc:"Stunning wall-mounted planters — crescents and hexagons that transform any vertical space.", anchor:"wall-planters", icon:'<svg viewBox="0 0 24 24"><path d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/></svg>'},
-  hanging: {title:"Hanging Bowls", desc:"Eye-catching hanging spheres and sky rings for lobbies, atriums, and open-plan spaces.", anchor:"hanging", icon:'<svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/></svg>'},
-  liner: {title:"Liners", desc:"Replacement liners and liner pots for easy plant changes and maintenance.", anchor:"liners", icon:'<svg viewBox="0 0 24 24"><path d="M2 20h20v-4H2v4zm2-3h2v2H4v-2zM2 4v4h20V4H2zm4 3H4V5h2v2zm-4 7h20v-4H2v4zm2-3h2v2H4v-2z"/></svg>'}
+  fiberglass:{title:"Fiberglass Planters",desc:"Premium fiberglass planters \u2014 lightweight, durable, and available in a wide range of shapes and sizes.",anchor:"planters",icon:'<svg viewBox="0 0 24 24"><path d="M18 4V3c0-.55-.45-1-1-1H7c-.55 0-1 .45-1 1v1H3v6c0 3.87 2.84 7.08 6.55 7.65C10.58 19.56 12 20.73 12 22h0c0-1.27 1.42-2.44 2.45-4.35C18.16 17.08 21 13.87 21 10V4h-3z"/></svg>'},
+  polyethylene:{title:"Polyethylene Planters",desc:"Cost-effective polyethylene planters in Pigmented, Sprayed Standard, Sprayed Pearl, and Sprayed Metallic finishes.",anchor:"planters-poly",icon:'<svg viewBox="0 0 24 24"><path d="M18 4V3c0-.55-.45-1-1-1H7c-.55 0-1 .45-1 1v1H3v6c0 3.87 2.84 7.08 6.55 7.65C10.58 19.56 12 20.73 12 22h0c0-1.27 1.42-2.44 2.45-4.35C18.16 17.08 21 13.87 21 10V4h-3z"/></svg>'},
+  trough:{title:"Troughs",desc:"Elegant troughs for dividing spaces, creating green partitions, and adding depth to reception areas.",anchor:"troughs",icon:'<svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14z"/></svg>'},
+  "desk-bowl":{title:"Desk Bowls",desc:"Compact desk bowls perfect for workstations, boardroom tables, and reception counters.",anchor:"desk-bowls",icon:'<svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>'},
+  wall:{title:"Wall Planters",desc:"Stunning wall-mounted planters \u2014 crescents and hexagons that transform any vertical space.",anchor:"wall-planters",icon:'<svg viewBox="0 0 24 24"><path d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/></svg>'},
+  hanging:{title:"Hanging Bowls",desc:"Eye-catching hanging spheres and sky rings for lobbies, atriums, and open-plan spaces.",anchor:"hanging",icon:'<svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/></svg>'},
+  liner:{title:"Liners",desc:"Replacement liners and liner pots for easy plant changes and maintenance.",anchor:"liners",icon:'<svg viewBox="0 0 24 24"><path d="M2 20h20v-4H2v4zm2-3h2v2H4v-2zM2 4v4h20V4H2zm4 3H4V5h2v2zm-4 7h20v-4H2v4zm2-3h2v2H4v-2z"/></svg>'}
 };
 
 let activeMoa = 24;
 let activeCategory = 'all';
 let searchQuery = '';
 
-// ── RENDER ──
 function init() {
-  renderColours();
   updateCounts();
   renderProducts();
   setupListeners();
-}
-
-function renderColours() {
-  const grid = document.getElementById('colorGrid');
-  grid.innerHTML = colours.map(c =>
-    `<div class="color-swatch" style="background:${c.hex}"><div class="tooltip">${c.name}</div></div>`
-  ).join('');
 }
 
 function updateCounts() {
@@ -1077,8 +1135,7 @@ function getFilteredProducts() {
     if (!matchCat) return false;
     if (!searchQuery) return true;
     const q = searchQuery.toLowerCase();
-    const searchStr = `${p.name} ${p.type} ${p.material} ${p.finish||''} ${p.h} ${p.w} ${p.l||''}`.toLowerCase();
-    return searchStr.includes(q);
+    return `${p.name} ${p.type} ${p.material} ${p.finish||''} ${p.h} ${p.w} ${p.l||''}`.toLowerCase().includes(q);
   });
 }
 
@@ -1097,12 +1154,8 @@ function renderProducts() {
   noResults.style.display = 'none';
   document.getElementById('visibleCount').textContent = filtered.length;
 
-  // Group by category
   const grouped = {};
-  filtered.forEach(p => {
-    if (!grouped[p.cat]) grouped[p.cat] = [];
-    grouped[p.cat].push(p);
-  });
+  filtered.forEach(p => { if (!grouped[p.cat]) grouped[p.cat] = []; grouped[p.cat].push(p); });
 
   const catOrder = ['fiberglass','polyethylene','trough','desk-bowl','wall','hanging','liner'];
   let html = '';
@@ -1110,68 +1163,42 @@ function renderProducts() {
   catOrder.forEach(cat => {
     if (!grouped[cat]) return;
     const cfg = categories[cat];
-    html += `
-      <div class="category-section" id="${cfg.anchor}">
-        <div class="category-title">
-          <div class="cat-icon">${cfg.icon}</div>
-          ${cfg.title}
-        </div>
-        <p class="category-desc">${cfg.desc}</p>
-        <div class="product-grid">
-          ${grouped[cat].map(p => renderCard(p)).join('')}
-        </div>
-      </div>
-    `;
+    html += `<div class="category-section" id="${cfg.anchor}">
+      <div class="category-header"><div class="cat-icon">${cfg.icon}</div><div class="category-title">${cfg.title}</div></div>
+      <p class="category-desc">${cfg.desc}</p>
+      <div class="product-grid">${grouped[cat].map((p, i) => renderCard(p, i)).join('')}</div>
+    </div>`;
   });
 
   sections.innerHTML = html;
 }
 
-function renderCard(p) {
-  const priceKey = `p${activeMoa}`;
+function renderCard(p, idx) {
   const dims = [];
-  if (p.h && p.h !== '—') dims.push({label:'Height',value:p.h});
-  if (p.w && p.w !== '—') dims.push({label:'Width',value:p.w});
+  if (p.h && p.h !== '\u2014') dims.push({label:'Height',value:p.h});
+  if (p.w && p.w !== '\u2014') dims.push({label:'Width',value:p.w});
   if (p.l) dims.push({label:'Length',value:p.l});
 
-  return `
-    <div class="product-card">
-      <div class="card-top">
-        <span class="card-material">${p.material}</span>
-        ${p.finish ? `<span class="card-finish">${p.finish}</span>` : ''}
-        <div class="card-name">${p.name}</div>
-      </div>
-      <div class="card-body">
-        ${dims.length > 0 ? `
-          <div class="card-dims">
-            ${dims.map(d => `<div class="dim"><span class="dim-label">${d.label}</span><span class="dim-value">${d.value}</span></div>`).join('')}
-          </div>
-        ` : ''}
-        <div class="card-divider"></div>
-        <div class="card-pricing">
-          <div class="price-col ${activeMoa===12?'best':''}">
-            <div class="price-term">12 Mo</div>
-            <div class="price-value">R${p.p12.toFixed(0)}</div>
-            <div class="price-unit">/month</div>
-          </div>
-          <div class="price-col ${activeMoa===24?'best':''}">
-            <div class="price-term">24 Mo</div>
-            <div class="price-value">R${p.p24.toFixed(0)}</div>
-            <div class="price-unit">/month</div>
-          </div>
-          <div class="price-col ${activeMoa===36?'best':''}">
-            <div class="price-term">36 Mo</div>
-            <div class="price-value">R${p.p36.toFixed(0)}</div>
-            <div class="price-unit">/month</div>
-          </div>
-        </div>
+  return `<div class="product-card" style="animation-delay:${Math.min(idx*0.05, 0.35)}s">
+    <div class="card-visual">
+      ${getSvg(p, idx)}
+      <span class="card-material-tag">${p.material}</span>
+      ${p.finish ? `<span class="card-finish-tag">${p.finish}</span>` : ''}
+    </div>
+    <div class="card-body">
+      <div class="card-name">${p.name}</div>
+      ${dims.length > 0 ? `<div class="card-dims">${dims.map(d => `<div class="dim"><span class="dim-label">${d.label}</span><span class="dim-value">${d.value}</span></div>`).join('')}</div>` : ''}
+      <div class="card-divider"></div>
+      <div class="card-pricing">
+        <div class="price-col ${activeMoa===12?'best':''}"><div class="price-term">12 Mo</div><div class="price-value">R${p.p12.toFixed(0)}</div><div class="price-unit">/month</div></div>
+        <div class="price-col ${activeMoa===24?'best':''}"><div class="price-term">24 Mo</div><div class="price-value">R${p.p24.toFixed(0)}</div><div class="price-unit">/month</div></div>
+        <div class="price-col ${activeMoa===36?'best':''}"><div class="price-term">36 Mo</div><div class="price-value">R${p.p36.toFixed(0)}</div><div class="price-unit">/month</div></div>
       </div>
     </div>
-  `;
+  </div>`;
 }
 
 function setupListeners() {
-  // Category pills
   document.querySelectorAll('.pill').forEach(btn => {
     btn.addEventListener('click', () => {
       document.querySelectorAll('.pill').forEach(b => b.classList.remove('active'));
@@ -1181,7 +1208,6 @@ function setupListeners() {
     });
   });
 
-  // MOA toggle
   document.querySelectorAll('.moa-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       document.querySelectorAll('.moa-btn').forEach(b => b.classList.remove('active'));
@@ -1191,22 +1217,10 @@ function setupListeners() {
     });
   });
 
-  // Search
   let debounce;
   document.getElementById('searchInput').addEventListener('input', (e) => {
     clearTimeout(debounce);
-    debounce = setTimeout(() => {
-      searchQuery = e.target.value;
-      renderProducts();
-    }, 200);
-  });
-
-  // Header nav active state
-  document.querySelectorAll('.header-nav a').forEach(link => {
-    link.addEventListener('click', () => {
-      document.querySelectorAll('.header-nav a').forEach(l => l.classList.remove('active'));
-      link.classList.add('active');
-    });
+    debounce = setTimeout(() => { searchQuery = e.target.value; renderProducts(); }, 200);
   });
 }
 
