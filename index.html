@@ -1190,9 +1190,9 @@ function renderCard(p, idx) {
       ${dims.length > 0 ? `<div class="card-dims">${dims.map(d => `<div class="dim"><span class="dim-label">${d.label}</span><span class="dim-value">${d.value}</span></div>`).join('')}</div>` : ''}
       <div class="card-divider"></div>
       <div class="card-pricing">
-        <div class="price-col ${activeMoa===12?'best':''}"><div class="price-term">12 Mo</div><div class="price-value">R${p.p12.toFixed(0)}</div><div class="price-unit">/month</div></div>
-        <div class="price-col ${activeMoa===24?'best':''}"><div class="price-term">24 Mo</div><div class="price-value">R${p.p24.toFixed(0)}</div><div class="price-unit">/month</div></div>
-        <div class="price-col ${activeMoa===36?'best':''}"><div class="price-term">36 Mo</div><div class="price-value">R${p.p36.toFixed(0)}</div><div class="price-unit">/month</div></div>
+        <div class="price-col ${activeMoa===12?'best':''}"><div class="price-term">12 Mo</div><div class="price-value">R${p.p12.toFixed(2)}</div><div class="price-unit">/month</div></div>
+        <div class="price-col ${activeMoa===24?'best':''}"><div class="price-term">24 Mo</div><div class="price-value">R${p.p24.toFixed(2)}</div><div class="price-unit">/month</div></div>
+        <div class="price-col ${activeMoa===36?'best':''}"><div class="price-term">36 Mo</div><div class="price-value">R${p.p36.toFixed(2)}</div><div class="price-unit">/month</div></div>
       </div>
     </div>
   </div>`;
