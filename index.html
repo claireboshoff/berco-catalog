@@ -481,10 +481,10 @@ body {
 .product-card:nth-child(3) { animation-delay: 0.1s; }
 .product-card:nth-child(4) { animation-delay: 0.15s; }
 
-/* Card visual area — SVG illustration */
+/* Card visual area — product photo */
 .card-visual {
   background: linear-gradient(135deg, #e8f0e3 0%, #d4e4cc 100%);
-  height: 180px;
+  height: 240px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -492,15 +492,16 @@ body {
   overflow: hidden;
 }
 
-.card-visual svg.planter-shape {
-  height: 140px;
-  width: auto;
-  filter: drop-shadow(0 4px 12px rgba(0,50,71,0.15));
-  transition: transform 0.3s ease;
+.card-visual img.product-photo {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  padding: 12px;
+  transition: transform 0.4s ease;
 }
 
-.product-card:hover .card-visual svg.planter-shape {
-  transform: scale(1.05);
+.product-card:hover .card-visual img.product-photo {
+  transform: scale(1.08);
 }
 
 .card-material-tag {
@@ -824,9 +825,76 @@ body {
 </footer>
 
 <script>
-// ── SVG SHAPE TEMPLATES ──
-// Each shape is a planter silhouette with a plant on top
-const SHAPES = {
+// ── PRODUCT IMAGE MAP ──
+const IMG_MAP = {
+  // Planters - Fiberglass
+  "pegasus large":"pegasus","pegasus medium":"pegasus","pegasus small":"pegasus-small",
+  "bellini round xl":"bellini-round","bellini round l":"bellini-round","bellini round m":"bellini-round","bellini round s":"bellini-round",
+  "bellini square xl":"bellini-square","bellini square l":"bellini-square","bellini square m":"bellini-square","bellini square s":"bellini-square-small",
+  "delphi":"delphi","odyssey medium":"othello-med","odyssey small":"othello-small",
+  "beverly 40 (fiberglass)":"athena","beverly 32":"athena",
+  "katana large":"katana","katana medium":"katana",
+  "othello medium":"othello-med","othello small":"othello-small",
+  "elgin large":"elgin","elgin medium":"elgin-small",
+  "salt large":"salt","salt medium":"salt",
+  "chamonix large":"chamonix","chamonix medium":"chamonix","chamonix small":"chamonix",
+  "iris xl":"iris","iris large":"iris","iris medium":"iris","iris small":"iris-bamboo",
+  "iris 70":"iris","iris 55cm":"iris","iris 40cm":"iris-bamboo",
+  "valentino":"delphi",
+  "eden tall":"gaia","eden short":"gaia-small",
+  "gaia 70":"gaia","gaia 55":"gaia","gaia 40":"gaia-small",
+  "clio":"gaia-small","symphony":"symphony","astro":"astro",
+  "equinox":"equinox","eclipse":"eclipse","cyclone":"cyclone",
+  "lunar round large":"lunar-round","lunar round medium":"lunar-round",
+  "lunar square large":"lunar-square","lunar square medium":"lunar-square",
+  "pepper large":"pepper","pepper medium":"pepper",
+  "hestia":"hestia",
+  "quadriga planter xl":"quadriga","quadriga planter l":"quadriga","quadriga planter m":"quadriga","quadriga planter s":"quadriga-stand",
+  "ripple tall":"iris","ripple short":"iris",
+  // Planters - Polyethylene
+  "ashley":"ashley","athena large":"athena","athena small":"athena",
+  "beverly 40cm":"athena","enlighten":"enlighten","h2o":"h2o","alpha-omega":"alpha-omega-01",
+  // Desk Bowls
+  "iris desk bowl":"katana-db","erin desk bowl":"bella",
+  "vega d/b":"vega","nova large d/b":"nova","nova medium d/b":"nova",
+  "othello desk bowl large":"othello-db","othello desk bowl medium":"othello-db",
+  "katana large d/b":"katana-db","katana medium d/b":"katana-db",
+  "kintra large d/b":"kintra","kintra medium d/b":"kintra","kintra small d/b":"kintra",
+  "quadriga medium d/b":"quadriga-db","quadriga small d/b":"quadriga-db",
+  "quadriga cupboard trough":"quadriga-trough-db",
+  "quadriga window box d/b medium":"quadriga-trough-db-sm","quadriga window box d/b small":"quadriga-trough-db-sm",
+  "bella d/b":"bella","amika d/b":"amika","taipan d/b":"taipan","ripple d/b":"bella",
+  // Troughs
+  "quadriga trough l":"quadriga-trough-lg","quadriga trough m":"quadriga-trough-md","quadriga trough s":"quadriga-trough-sm",
+  "quadriga trough 3 div":"quadriga-trough-md","quadriga trough 2 div tall":"quadriga-trough-md",
+  "quadriga trough 2 div standard":"quadriga-trough-md","quadriga trough 2 div short":"quadriga-trough-sm",
+  "lunar trough":"lunar-trough","okino trough large":"okino-large","okino trough small":"okino-small","pulsar":"pulsar",
+  // Wall
+  "full crescent xl":"crescent-full","full crescent large":"crescent-full","full crescent medium":"crescent-full","full crescent small":"crescent-full",
+  "half crescent xl":"crescent-half","half crescent large":"crescent-half",
+  "hexagon full large":"hexagon","hexagon full small":"hexagon","hexagon half large":"hexagon","hexagon half small":"hexagon",
+  // Hanging
+  "hanging sphere l (standard)":"hanging-sphere-lg","hanging sphere l (pigmented)":"hanging-sphere-lg",
+  "hanging sphere s (standard)":"hanging-sphere-sm","hanging sphere s (pigmented)":"hanging-sphere-sm",
+  "sky ring large":"hanging-sphere-lg",
+  // Liners
+  "70cm complete liner":"styler-liner","55cm complete liner":"styler-liner","40cm complete liner":"styler-liner",
+  "32cm complete liner":"styler-liner","29cm complete liner":"styler-liner","25cm complete liner":"styler-liner",
+  "40cm liner pot":"styler-liner","32cm liner pot":"styler-liner"
+};
+
+function getProductImage(p) {
+  const key = p.name.toLowerCase();
+  const img = IMG_MAP[key];
+  if (img) return `img/products/${img}.jpg`;
+  // Fallback: try partial match
+  for (const [k, v] of Object.entries(IMG_MAP)) {
+    if (key.includes(k) || k.includes(key)) return `img/products/${v}.jpg`;
+  }
+  return null;
+}
+
+const SHAPES_UNUSED = {
   tallTaper: `<svg class="planter-shape" viewBox="0 0 120 200" fill="none" xmlns="http://www.w3.org/2000/svg">
     <ellipse cx="60" cy="58" rx="28" ry="40" fill="#3a7d44" opacity="0.7"/>
     <ellipse cx="48" cy="50" rx="18" ry="30" fill="#4a9d54" opacity="0.6"/>
@@ -1179,9 +1247,10 @@ function renderCard(p, idx) {
   if (p.w && p.w !== '\u2014') dims.push({label:'Width',value:p.w});
   if (p.l) dims.push({label:'Length',value:p.l});
 
+  const imgSrc = getProductImage(p);
   return `<div class="product-card" style="animation-delay:${Math.min(idx*0.05, 0.35)}s">
     <div class="card-visual">
-      ${getSvg(p, idx)}
+      ${imgSrc ? `<img class="product-photo" src="${imgSrc}" alt="${p.name}" loading="lazy">` : `<div style="color:var(--gray-400);font-size:13px;text-align:center;">Photo coming soon</div>`}
       <span class="card-material-tag">${p.material}</span>
       ${p.finish ? `<span class="card-finish-tag">${p.finish}</span>` : ''}
     </div>
